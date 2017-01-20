@@ -36,12 +36,6 @@ if (process.env.NODE_ENV === 'production') {
     scss: ExtractTextPlugin.extract({
       loader: `css-loader!sass-loader`,
       fallbackLoader: 'vue-style-loader',
-      options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, '../scss')],
-          importer: magicImporter(),
-        },
-      },
     }),
   };
 
@@ -50,6 +44,12 @@ if (process.env.NODE_ENV === 'production') {
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
       minimize: true,
+      options: {
+        sassLoader: {
+          includePaths: [path.resolve(__dirname, '../scss')],
+          importer: magicImporter(),
+        }
+      },
     }),
     // minify JS
     new webpack.optimize.UglifyJsPlugin({
