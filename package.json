@@ -1,6 +1,6 @@
 {
-  "name": "holy-grail",
-  "description": "holy-grail",
+  "name": "holy-grail-frontend",
+  "description": "holy-grail-frontend",
   "version": "0.0.1",
   "author": "Markus Oberlehner",
   "homepage": "https://github.com/maoberlehner/holy-grail",
@@ -45,7 +45,7 @@
     "webpack-hot-middleware": "^2.15.0"
   },
   "scripts": {
-    "dev": "node server",
+    "dev": "yarn run build && node server",
     "start": "yarn run build && cross-env NODE_ENV=production node server",
     "build": "yarn run clean && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
