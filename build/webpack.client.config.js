@@ -6,10 +6,23 @@ const magicImporter = require('node-sass-magic-importer');
 const path = require('path');
 
 const vueConfig = require('./vue-loader.config');
+const sassLoaderConfig = require('./sass-loader-config');
 const base = require('./webpack.base.config');
+
+vueConfig.loaders = {
+  scss: `${sassLoaderConfig.fallbackLoader}!${sassLoaderConfig.loader}`,
+};
 
 const config = Object.assign({}, base, {
   plugins: (base.plugins || []).concat([
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [path.resolve(__dirname, '../scss')],
+          importer: magicImporter(),
+        }
+      },
+    }),
     // Strip comments in Vue code.
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -33,10 +46,7 @@ if (process.env.NODE_ENV === 'production') {
   // here we overwrite the loader config for <style lang="stylus">
   // so they are extracted.
   vueConfig.loaders = {
-    scss: ExtractTextPlugin.extract({
-      loader: `css-loader!sass-loader`,
-      fallbackLoader: 'vue-style-loader',
-    }),
+    scss: ExtractTextPlugin.extract(sassLoaderConfig),
   };
 
   config.plugins.push(
@@ -44,12 +54,6 @@ if (process.env.NODE_ENV === 'production') {
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, '../scss')],
-          importer: magicImporter(),
-        }
-      },
     }),
     // minify JS
     new webpack.optimize.UglifyJsPlugin({
