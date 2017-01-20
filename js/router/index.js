@@ -3,8 +3,8 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-const Foo = { template: '<div>foo</div>' };
-const Bar = { template: '<div>bar</div>' };
+import Foo from '../views/foo.vue'
+import Bar from '../views/bar.vue'
 
 export default new Router({
   mode: 'history',
