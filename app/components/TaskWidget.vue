@@ -17,6 +17,6 @@
 <template>
   <div class="c-task-widget">
     <h2>{{ task.title }} ({{ task.progress }})</h2>
-    <button v-on:click="fullfillTask">Done</button>
+    <button @click="fullfillTask">Done</button>
   </div>
 </template>

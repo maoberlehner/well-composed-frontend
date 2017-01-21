@@ -13,6 +13,6 @@
 
 <template>
   <li class="c-task-list-item">
-    <task-widget v-bind:task="task"></task-widget>
+    <task-widget :task="task"></task-widget>
   </li>
 </template>

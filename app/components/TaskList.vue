@@ -43,10 +43,10 @@
     <h1>TaskList</h1>
     <div v-if="loading">LOADING...</div>
     <ul>
-      <task-list-item v-for="task in tasks" v-bind:task="task"></task-list-item>
+      <task-list-item v-for="task in tasks" :task="task"></task-list-item>
     </ul>
     <input v-model="newTaskTitle">
     <input v-model="newTaskProgress">
-    <button v-on:click="addTask">Add task</button>
+    <button @click="addTask">Add task</button>
   </div>
 </template>
