@@ -12,10 +12,10 @@ export default (context) => {
   // which is resolved when the action is complete and store state has been
   // updated.
   return Promise.all(matchedComponents.map((component) => {
-    if (component.preFetch) return component.preFetch(store);
+    if (component.prefetch) return component.prefetch(store);
     return undefined;
   })).then(() => {
-    // After all preFetch hooks are resolved, our store is now
+    // After all prefetch hooks are resolved, our store is now
     // filled with the state needed to render the app.
     // Expose the state on the render context, and let the request handler
     // inline the state in the HTML response. This allows the client-side

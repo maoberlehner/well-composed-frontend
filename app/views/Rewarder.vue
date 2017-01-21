@@ -5,6 +5,9 @@
     components: {
       TaskList,
     },
+    prefetch(store) {
+      return store.dispatch(`loadTasks`);
+    },
   };
 </script>
 
