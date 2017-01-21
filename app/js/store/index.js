@@ -20,6 +20,4 @@ const store = new Vuex.Store({
   },
 });
 
-store.dispatch(`loadTasks`);
-
 export default store;

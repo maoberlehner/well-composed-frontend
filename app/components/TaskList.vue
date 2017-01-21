@@ -6,6 +6,7 @@
     computed: mapGetters([`tasks`]),
     data() {
       return {
+        loading: true,
         newTaskTitle: ``,
         newTaskProgress: 0,
       };
@@ -14,6 +15,11 @@
       TaskListItem,
     },
     methods: {
+      loadTasks() {
+        this.$store.dispatch(`loadTasks`).then(() => {
+          this.loading = false;
+        });
+      },
       addTask() {
         if (this.newTaskTitle.length) {
           this.$store.dispatch(`addTask`, {
@@ -26,12 +32,16 @@
         }
       },
     },
+    beforeMount() {
+      this.loadTasks();
+    }
   };
 </script>
 
 <template>
   <div class="c-task-list">
     <h1>TaskList</h1>
+    <div v-if="loading">LOADING...</div>
     <ul>
       <task-list-item v-for="task in tasks" v-bind:task="task"></task-list-item>
     </ul>

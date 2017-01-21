@@ -3,13 +3,13 @@ import tasksApi from '../api/fake-tasks';
 
 const actions = {
   loadTasks({ commit }) {
-    tasksApi.then(tasks => commit(mutationTypes.LOAD_TASKS, tasks));
+    return tasksApi.then(tasks => commit(mutationTypes.LOAD_TASKS, tasks));
   },
   addTask({ commit }, newTask) {
-    commit(mutationTypes.ADD_TASK, newTask);
+    return commit(mutationTypes.ADD_TASK, newTask);
   },
   fullfillTask({ commit }, data) {
-    commit(mutationTypes.FULLFILL_TASK, data);
+    return commit(mutationTypes.FULLFILL_TASK, data);
   },
 };
 
