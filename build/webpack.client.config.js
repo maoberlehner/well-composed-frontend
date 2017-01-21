@@ -36,7 +36,7 @@ const config = Object.assign({}, baseConfig, {
     }),
     // Generate output HTML.
     new HtmlWebpackPlugin({
-      template: `html/index.template.html`,
+      template: `./app/html/index.template.html`,
     }),
   ]),
 });

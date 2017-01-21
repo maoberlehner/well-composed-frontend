@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Rewarder from '../views/Rewarder.vue';
+import Rewarder from '../../views/Rewarder.vue';
 
 Vue.use(VueRouter);
 

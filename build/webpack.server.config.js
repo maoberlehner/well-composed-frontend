@@ -6,7 +6,7 @@ const packageJson = require(`../package.json`);
 module.exports = Object.assign({}, baseConfig, {
   target: `node`,
   devtool: false,
-  entry: `./js/entry-server.js`,
+  entry: `./app/js/entry-server.js`,
   output: Object.assign({}, baseConfig.output, {
     filename: `server-bundle.js`,
     libraryTarget: `commonjs2`,
