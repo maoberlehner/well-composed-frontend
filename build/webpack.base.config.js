@@ -1,9 +1,9 @@
 const path = require(`path`);
 
-const vueConfig = require(`./vue-loader.config`);
+const vueLoaderConfig = require(`./loader-vue.config`);
 
 module.exports = {
-  // devtool: '#source-map',
+  devtool: `#source-map`,
   entry: {
     app: `./js/entry-client.js`,
     vendor: [
@@ -30,7 +30,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: `vue-loader`,
-        options: vueConfig,
+        options: vueLoaderConfig,
       },
       {
         test: /\.js$/,

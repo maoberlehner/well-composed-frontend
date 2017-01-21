@@ -1,13 +1,13 @@
 const webpack = require(`webpack`);
 
-const base = require(`./webpack.base.config`);
+const baseConfig = require(`./webpack.base.config`);
 const packageJson = require(`../package.json`);
 
-module.exports = Object.assign({}, base, {
+module.exports = Object.assign({}, baseConfig, {
   target: `node`,
   devtool: false,
   entry: `./js/entry-server.js`,
-  output: Object.assign({}, base.output, {
+  output: Object.assign({}, baseConfig.output, {
     filename: `server-bundle.js`,
     libraryTarget: `commonjs2`,
   }),

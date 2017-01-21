@@ -22,6 +22,7 @@
     "vuex-router-sync": "^4.1.1"
   },
   "devDependencies": {
+    "autoprefixer": "^6.6.1",
     "buble": "^0.15.2",
     "buble-loader": "^0.4.0",
     "compression": "^1.6.2",

@@ -1,14 +1,14 @@
 import 'es6-promise/auto';
 import { app, store } from './app';
 
-// prime the store with server-initialized state.
-// the state is determined during SSR and inlined in the page markup.
+// Prime the store with server-initialized state.
+// The state is determined during SSR and inlined in the page markup.
 store.replaceState(window.VUE_APP_INITIAL_STATE);
 
-// actually mount to DOM
+// Mount to DOM.
 app.$mount(`#app`);
 
-// service worker
+// Add service worker.
 if (process.env.NODE_ENV === `production` && `serviceWorker` in navigator) {
   navigator.serviceWorker.register(`/service-worker.js`);
 }

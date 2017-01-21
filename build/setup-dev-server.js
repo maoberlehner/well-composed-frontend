@@ -1,47 +1,50 @@
-const MFS = require(`memory-fs`);
+const MemoryFs = require(`memory-fs`);
 const path = require(`path`);
 const webpack = require(`webpack`);
 const webpackDevMiddleware = require(`webpack-dev-middleware`);
 const webpackHotMiddleware = require(`webpack-hot-middleware`);
 
-const clientConfig = require(`./webpack.client.config`);
-const serverConfig = require(`./webpack.server.config`);
+const webpackClientConfig = require(`./webpack.client.config`);
+const webpackServerConfig = require(`./webpack.server.config`);
 
-module.exports = function setupDevServer(app, opts) {
-  // modify client config to work with hot middleware
-  clientConfig.entry.app = [`webpack-hot-middleware/client`, clientConfig.entry.app];
-  clientConfig.output.filename = `[name].js`;
-  clientConfig.plugins.push(
+module.exports = function setupDevServer(app, options) {
+  // Modify the client config to work with hot middleware.
+  webpackClientConfig.entry.app = [`webpack-hot-middleware/client`, webpackClientConfig.entry.app];
+  webpackClientConfig.output.filename = `[name].js`;
+  webpackClientConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   );
 
-  // dev middleware
-  const clientCompiler = webpack(clientConfig);
+  // Dev middleware.
+  const clientCompiler = webpack(webpackClientConfig);
   const devMiddleware = webpackDevMiddleware(clientCompiler, {
-    publicPath: clientConfig.output.publicPath,
+    publicPath: webpackClientConfig.output.publicPath,
     stats: {
       colors: true,
       chunks: false,
     },
   });
   app.use(devMiddleware);
+
   clientCompiler.plugin(`done`, () => {
     const fs = devMiddleware.fileSystem;
-    const filePath = path.join(clientConfig.output.path, `index.html`);
+    const filePath = path.join(webpackClientConfig.output.path, `index.html`);
+
     if (fs.existsSync(filePath)) {
       const index = fs.readFileSync(filePath, `utf-8`);
-      opts.indexUpdated(index);
+      options.indexUpdated(index);
     }
   });
-
-  // hot middleware
   app.use(webpackHotMiddleware(clientCompiler));
 
-  // watch and update server renderer
-  const serverCompiler = webpack(serverConfig);
-  const mfs = new MFS();
-  const outputPath = path.join(serverConfig.output.path, serverConfig.output.filename);
+  // Watch and update server renderer.
+  const serverCompiler = webpack(webpackServerConfig);
+  const mfs = new MemoryFs();
+  const outputPath = path.join(
+    webpackServerConfig.output.path,
+    webpackServerConfig.output.filename
+  );
   serverCompiler.outputFileSystem = mfs;
   serverCompiler.watch({}, (error, stats) => {
     if (error) throw error;
@@ -51,6 +54,6 @@ module.exports = function setupDevServer(app, opts) {
     stats.errors.forEach(statError => console.error(statError));
     // eslint-disable-next-line no-console
     stats.warnings.forEach(statWarning => console.warn(statWarning));
-    opts.bundleUpdated(mfs.readFileSync(outputPath, `utf-8`));
+    options.bundleUpdated(mfs.readFileSync(outputPath, `utf-8`));
   });
 };
