@@ -24,6 +24,7 @@ const mutations = {
     state.tasks = tasks;
   },
   [mutationTypes.ADD_TASK](state, newTask) {
+    newTask.id = newTask.id || Date.now();
     state.tasks.push(newTask);
   },
   [mutationTypes.FULLFILL_TASK](state, data) {
