@@ -2,14 +2,14 @@ import mutationTypes from '../mutation-types';
 import tasksApi from '../api/fake-tasks';
 
 const actions = {
-  loadTasks(context) {
-    tasksApi.then(tasks => context.commit(mutationTypes.LOAD_TASKS, tasks));
+  loadTasks({ commit }) {
+    tasksApi.then(tasks => commit(mutationTypes.LOAD_TASKS, tasks));
   },
-  addTask(context, newTask) {
-    context.commit(mutationTypes.ADD_TASK, newTask);
+  addTask({ commit }, newTask) {
+    commit(mutationTypes.ADD_TASK, newTask);
   },
-  fullfillTask(context, data) {
-    context.commit(mutationTypes.FULLFILL_TASK, data);
+  fullfillTask({ commit }, data) {
+    commit(mutationTypes.FULLFILL_TASK, data);
   },
 };
 
