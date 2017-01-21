@@ -1,3 +1,10 @@
 {
-  "extends": "eslint-config-modularis"
+  "extends": "eslint-config-modularis",
+  "plugins": [
+    "html"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  }
 }

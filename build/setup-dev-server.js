@@ -1,14 +1,16 @@
-const MFS = require('memory-fs');
-const path = require('path');
-const webpack = require('webpack');
+const MFS = require(`memory-fs`);
+const path = require(`path`);
+const webpack = require(`webpack`);
+const webpackDevMiddleware = require(`webpack-dev-middleware`);
+const webpackHotMiddleware = require(`webpack-hot-middleware`);
 
-const clientConfig = require('./webpack.client.config');
-const serverConfig = require('./webpack.server.config');
+const clientConfig = require(`./webpack.client.config`);
+const serverConfig = require(`./webpack.server.config`);
 
-module.exports = function setupDevServer (app, opts) {
+module.exports = function setupDevServer(app, opts) {
   // modify client config to work with hot middleware
-  clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app];
-  clientConfig.output.filename = '[name].js';
+  clientConfig.entry.app = [`webpack-hot-middleware/client`, clientConfig.entry.app];
+  clientConfig.output.filename = `[name].js`;
   clientConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
@@ -16,7 +18,7 @@ module.exports = function setupDevServer (app, opts) {
 
   // dev middleware
   const clientCompiler = webpack(clientConfig);
-  const devMiddleware = require('webpack-dev-middleware')(clientCompiler, {
+  const devMiddleware = webpackDevMiddleware(clientCompiler, {
     publicPath: clientConfig.output.publicPath,
     stats: {
       colors: true,
@@ -24,17 +26,17 @@ module.exports = function setupDevServer (app, opts) {
     },
   });
   app.use(devMiddleware);
-  clientCompiler.plugin('done', () => {
+  clientCompiler.plugin(`done`, () => {
     const fs = devMiddleware.fileSystem;
-    const filePath = path.join(clientConfig.output.path, 'index.html');
+    const filePath = path.join(clientConfig.output.path, `index.html`);
     if (fs.existsSync(filePath)) {
-      const index = fs.readFileSync(filePath, 'utf-8');
+      const index = fs.readFileSync(filePath, `utf-8`);
       opts.indexUpdated(index);
     }
   });
 
   // hot middleware
-  app.use(require('webpack-hot-middleware')(clientCompiler));
+  app.use(webpackHotMiddleware(clientCompiler));
 
   // watch and update server renderer
   const serverCompiler = webpack(serverConfig);
@@ -43,9 +45,12 @@ module.exports = function setupDevServer (app, opts) {
   serverCompiler.outputFileSystem = mfs;
   serverCompiler.watch({}, (error, stats) => {
     if (error) throw error;
+    // eslint-disable-next-line no-param-reassign
     stats = stats.toJson();
-    stats.errors.forEach(error => console.error(error));
-    stats.warnings.forEach(error => console.warn(error));
-    opts.bundleUpdated(mfs.readFileSync(outputPath, 'utf-8'));
+    // eslint-disable-next-line no-console
+    stats.errors.forEach(statError => console.error(statError));
+    // eslint-disable-next-line no-console
+    stats.warnings.forEach(statWarning => console.warn(statWarning));
+    opts.bundleUpdated(mfs.readFileSync(outputPath, `utf-8`));
   });
 };

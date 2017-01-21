@@ -1,13 +1,13 @@
-const webpack = require('webpack');
-const HTMLPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const SWPrecachePlugin = require('sw-precache-webpack-plugin');
-const magicImporter = require('node-sass-magic-importer');
-const path = require('path');
+const webpack = require(`webpack`);
+const HTMLPlugin = require(`html-webpack-plugin`);
+const ExtractTextPlugin = require(`extract-text-webpack-plugin`);
+const SWPrecachePlugin = require(`sw-precache-webpack-plugin`);
+const magicImporter = require(`node-sass-magic-importer`);
+const path = require(`path`);
 
-const vueConfig = require('./vue-loader.config');
-const sassLoaderConfig = require('./sass-loader-config');
-const base = require('./webpack.base.config');
+const vueConfig = require(`./vue-loader.config`);
+const sassLoaderConfig = require(`./sass-loader-config`);
+const base = require(`./webpack.base.config`);
 
 vueConfig.loaders = {
   scss: `${sassLoaderConfig.fallbackLoader}!${sassLoaderConfig.loader}`,
@@ -18,28 +18,28 @@ const config = Object.assign({}, base, {
     new webpack.LoaderOptionsPlugin({
       options: {
         sassLoader: {
-          includePaths: [path.resolve(__dirname, '../scss')],
+          includePaths: [path.resolve(__dirname, `../scss`)],
           importer: magicImporter(),
-        }
+        },
       },
     }),
     // Strip comments in Vue code.
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'process.env.VUE_ENV': '"client"',
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || `development`),
+      'process.env.VUE_ENV': `"client"`,
     }),
     // Extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: `vendor`,
     }),
     // Generate output HTML.
     new HTMLPlugin({
-      template: 'html/index.template.html',
+      template: `html/index.template.html`,
     }),
   ]),
 });
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === `production`) {
   // Use ExtractTextPlugin to extract CSS into a single file
   // so it's applied on initial render.
   // vueConfig is already included in the config via LoaderOptionsPlugin
@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
   };
 
   config.plugins.push(
-    new ExtractTextPlugin('styles.[hash].css'),
+    new ExtractTextPlugin(`styles.[hash].css`),
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
       minimize: true,
@@ -59,15 +59,15 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-      }
+      },
     }),
     new SWPrecachePlugin({
-      cacheId: 'holy-grail',
-      filename: 'service-worker.js',
+      cacheId: `holy-grail`,
+      filename: `service-worker.js`,
       dontCacheBustUrlsMatching: /./,
       staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/],
     })
   );
-};
+}
 
 module.exports = config;

@@ -1,16 +1,16 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
-Vue.use(Router);
+import Bar from '../views/bar.vue';
+import Foo from '../views/foo.vue';
 
-import Foo from '../views/foo.vue'
-import Bar from '../views/bar.vue'
+Vue.use(VueRouter);
 
-export default new Router({
-  mode: 'history',
+export default new VueRouter({
+  mode: `history`,
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar },
+    { path: `/foo`, component: Foo },
+    { path: `/bar`, component: Bar },
   ],
 });
