@@ -8,9 +8,19 @@
   dependencies:
     "@avalanche/setting-spacings" "^4.0.0-alpha.3"
 
+"@avalanche/setting-breakpoints@^4.0.0-alpha.2":
+  version "4.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@avalanche/setting-breakpoints/-/setting-breakpoints-4.0.0-alpha.2.tgz#4dd3e235273a50f04c624f34adde4d0986975d58"
+
 "@avalanche/setting-spacings@^4.0.0-alpha.3":
   version "4.0.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@avalanche/setting-spacings/-/setting-spacings-4.0.0-alpha.3.tgz#06af7b656caff50a27570aa415966f926caf9029"
+
+"@avalanche/utility-width@^4.0.0-alpha.4":
+  version "4.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@avalanche/utility-width/-/utility-width-4.0.0-alpha.4.tgz#c0f70c7908d3c38ac8b0d506881b7c2451e29f54"
+  dependencies:
+    "@avalanche/setting-breakpoints" "^4.0.0-alpha.2"
 
 JSONStream@^0.8.4:
   version "0.8.4"
