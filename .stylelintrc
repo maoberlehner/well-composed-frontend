@@ -2,6 +2,7 @@
   "extends": "stylelint-config-modularis",
   "processors": ["stylelint-processor-html"],
   "rules": {
-    "no-empty-source": null
+    "no-empty-source": null,
+    "string-no-newline": null
   }
 }
