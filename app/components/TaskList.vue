@@ -2,6 +2,11 @@
   import { mapGetters } from 'vuex';
   import TaskListItem from './TaskListItem.vue';
 
+  const validateTask = (task) => {
+    if (task.title.length < 1) return false;
+    return true;
+  };
+
   export default {
     computed: mapGetters([`tasks`]),
     data() {
@@ -15,15 +20,18 @@
     },
     methods: {
       addTask() {
-        if (this.newTaskTitle.length) {
-          this.$store.dispatch(`addTask`, {
-            title: this.newTaskTitle,
-            progress: this.newTaskProgress,
-          });
-
-          this.newTaskTitle = ``;
-          this.newTaskProgress = 0;
+        const newTask = {
+          title: this.newTaskTitle,
+          progress: this.newTaskProgress,
+        };
+        if (validateTask(newTask)) {
+          this.$store.dispatch(`addTask`, newTask);
+          this.clearNewTaskData();
         }
+      },
+      clearNewTaskData() {
+        this.newTaskTitle = ``;
+        this.newTaskProgress = 0;
       },
     },
   };
