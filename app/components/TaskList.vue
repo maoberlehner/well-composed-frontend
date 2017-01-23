@@ -1,6 +1,6 @@
 <script>
   import { mapGetters } from 'vuex';
-  import TaskListItem from './TaskListItem.vue';
+  import TaskWidget from './TaskWidget.vue';
 
   const validateTask = (task) => {
     if (task.title.length < 1) return false;
@@ -16,7 +16,7 @@
       };
     },
     components: {
-      TaskListItem,
+      TaskWidget,
     },
     methods: {
       addTask() {
@@ -41,7 +41,9 @@
   <div class="c-task-list">
     <h1>TaskList</h1>
     <ul>
-      <task-list-item v-for="task in tasks" :task="task"></task-list-item>
+      <li v-for="task in tasks">
+        <task-widget :task="task"></task-widget>
+      </li>
     </ul>
     <input v-model="newTaskTitle">
     <input v-model="newTaskProgress">
