@@ -1,8 +1,13 @@
 <script>
+  import CustomButton from './Button.vue';
+
   export default {
     props: [
       `task`,
     ],
+    components: {
+      CustomButton,
+    },
     methods: {
       fullfillTask() {
         this.$store.dispatch(`fullfillTask`, {
@@ -17,6 +22,6 @@
 <template>
   <div class="c-task-widget">
     <h2>{{ task.title }} ({{ task.progress }})</h2>
-    <button @click="fullfillTask">Done</button>
+    <custom-button @buttonClick="fullfillTask">Done</custom-button>
   </div>
 </template>

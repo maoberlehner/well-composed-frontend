@@ -1,5 +1,6 @@
 <script>
   import { mapGetters } from 'vuex';
+  import CustomButton from './Button.vue';
   import TaskWidget from './TaskWidget.vue';
 
   const validateTask = (task) => {
@@ -16,6 +17,7 @@
       };
     },
     components: {
+      CustomButton,
       TaskWidget,
     },
     methods: {
@@ -47,6 +49,6 @@
     </ul>
     <input v-model="newTaskTitle">
     <input v-model="newTaskProgress">
-    <button @click="addTask">Add task</button>
+    <custom-button @buttonClick="addTask">Add task</custom-button>
   </div>
 </template>
