@@ -2,7 +2,7 @@
   export default {
     methods: {
       emitClickEvent() {
-        this.$emit('buttonClick');
+        this.$emit('cButtonClick');
       },
     },
   };
@@ -10,9 +10,12 @@
 
 <template>
   <button class="c-button" @click="emitClickEvent">
-    <div class="c-button__icon" v-if="this.$slots['icon']">
-      <slot name="icon"></slot>
+    <div class="c-button__icon c-button__icon--before" v-if="this.$slots['icon-before']">
+      <slot name="icon-before"></slot>
     </div>
     <slot></slot>
+    <div class="c-button__icon c-button__icon--after" v-if="this.$slots['icon-after']">
+      <slot name="icon-after"></slot>
+    </div>
   </button>
 </template>

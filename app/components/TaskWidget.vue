@@ -22,6 +22,6 @@
 <template>
   <div class="c-task-widget">
     <h2>{{ task.title }} ({{ task.progress }})</h2>
-    <custom-button @buttonClick="fullfillTask">Done</custom-button>
+    <custom-button @cButtonClick="fullfillTask">Done</custom-button>
   </div>
 </template>
