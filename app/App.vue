@@ -9,6 +9,8 @@
 </script>
 
 <style lang="scss">
+  @import '~normalize-scss/sass/normalize/_import-now.scss';
+  @import '~@avalanche/generic-box-sizing-reset';
   @import '{ .o-grid } from ~@avalanche/object-grid';
   @import '{
     .u-width-12/12,

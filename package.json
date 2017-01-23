@@ -13,9 +13,11 @@
     "url": "https://github.com/maoberlehner/holy-grail/issues"
   },
   "dependencies": {
+    "@avalanche/generic-box-sizing-reset": "^4.0.0-alpha.2",
     "@avalanche/object-grid": "^4.0.0-alpha.8",
     "@avalanche/utility-width": "^4.0.0-alpha.4",
     "es6-promise": "^4.0.5",
+    "normalize-scss": "^6.0.0",
     "vue": "^2.1.10",
     "vue-router": "^2.1.3",
     "vue-server-renderer": "^2.1.10",
