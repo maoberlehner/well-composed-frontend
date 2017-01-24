@@ -9,7 +9,7 @@
       CustomButton,
     },
     methods: {
-      fullfillTask() {
+      fulfillTask() {
         this.$store.dispatch(`FULFILL_TASK`, {
           taskId: this.task.id,
           progress: 10,
@@ -22,6 +22,6 @@
 <template>
   <div class="c-task-widget">
     <h2>{{ task.title }} ({{ task.progress }})</h2>
-    <custom-button @cButtonClick="fullfillTask">Done</custom-button>
+    <custom-button @cButtonClick="fulfillTask">Done</custom-button>
   </div>
 </template>
