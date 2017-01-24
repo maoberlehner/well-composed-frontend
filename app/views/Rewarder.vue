@@ -6,7 +6,7 @@
       TaskList,
     },
     prefetch(store) {
-      return store.dispatch(`loadTasks`);
+      return store.dispatch(`FETCH_TASKS`);
     },
   };
 </script>

@@ -9,7 +9,7 @@
   };
 
   export default {
-    computed: mapGetters([`tasks`]),
+    computed: mapGetters([`allTasks`]),
     data() {
       return {
         newTaskTitle: ``,
@@ -27,7 +27,7 @@
           progress: this.newTaskProgress,
         };
         if (validateTask(newTask)) {
-          this.$store.dispatch(`addTask`, newTask);
+          this.$store.dispatch(`ADD_TASK`, newTask);
           this.clearNewTaskData();
         }
       },
@@ -43,7 +43,7 @@
   <div class="c-task-list">
     <h1>TaskList</h1>
     <ul>
-      <li v-for="task in tasks">
+      <li v-for="task in allTasks">
         <task-widget :task="task"></task-widget>
       </li>
     </ul>

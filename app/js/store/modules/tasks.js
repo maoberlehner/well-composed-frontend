@@ -1,36 +1,45 @@
-import mutationTypes from '../mutation-types';
 import tasksApi from '../api/fake-tasks';
 
 const actions = {
-  loadTasks({ commit }) {
-    return tasksApi.then(tasks => commit(mutationTypes.LOAD_TASKS, tasks));
+  FETCH_TASKS({ commit }) {
+    return tasksApi.then(tasks => commit(`SET_TASKS`, tasks));
   },
-  addTask({ commit }, newTask) {
-    return commit(mutationTypes.ADD_TASK, newTask);
+  ADD_TASK({ commit }, newTask) {
+    // @TODO: Query API to save new task.
+    commit(`ADD_TASK`, newTask);
   },
-  fullfillTask({ commit }, data) {
-    return commit(mutationTypes.FULLFILL_TASK, data);
+  UPDATE_TASK({ commit }, updateTask) {
+    // @TODO: Query API to update task.
+    commit(`UPDATE_TASK`, updateTask);
   },
-};
-
-const getters = {
-  tasks(state) {
-    return state.tasks;
+  FULFILL_TASK({ commit }, payload) {
+    // @TODO: Query API to update task.
+    commit(`FULFILL_TASK`, payload);
   },
 };
 
 const mutations = {
-  [mutationTypes.LOAD_TASKS](state, tasks) {
+  SET_TASKS(state, tasks) {
     state.tasks = tasks;
   },
-  [mutationTypes.ADD_TASK](state, newTask) {
+  ADD_TASK(state, newTask) {
     newTask.id = newTask.id || Date.now();
     state.tasks.push(newTask);
   },
-  [mutationTypes.FULLFILL_TASK](state, data) {
-    const fullfilledTask = state.tasks.find(task => task.id === data.taskId);
-    fullfilledTask.progress += data.progress;
-    if (fullfilledTask.progress > 100) fullfilledTask.progress = 100;
+  UPDATE_TASK(state, updateTask) {
+    let taskToUpdate = state.tasks.find(task => task.id === updateTask.id);
+    taskToUpdate = updateTask;
+  },
+  FULFILL_TASK(state, payload) {
+    const taskToFulfill = state.tasks.find(task => task.id === payload.taskId);
+    taskToFulfill.progress += payload.progress;
+    if (taskToFulfill.progress > 100) taskToFulfill.progress = 100;
+  },
+};
+
+const getters = {
+  allTasks(state) {
+    return state.tasks;
   },
 };
 

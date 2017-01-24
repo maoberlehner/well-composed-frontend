@@ -10,7 +10,7 @@
     },
     methods: {
       fullfillTask() {
-        this.$store.dispatch(`fullfillTask`, {
+        this.$store.dispatch(`FULFILL_TASK`, {
           taskId: this.task.id,
           progress: 10,
         });
