@@ -1,7 +1,7 @@
 <script>
   export default {
     methods: {
-      emitClickEvent() {
+      handleClickEvent() {
         this.$emit('cButtonClick');
       },
     },
@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <button class="c-button" @click="emitClickEvent">
+  <button class="c-button" @click="handleClickEvent">
     <div class="c-button__icon c-button__icon--before" v-if="this.$slots['icon-before']">
       <slot name="icon-before"></slot>
     </div>
