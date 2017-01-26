@@ -1,9 +1,10 @@
+const cssMqPacker = require(`css-mqpacker`);
 const cssnano = require(`cssnano`);
 const ExtractTextPlugin = require(`extract-text-webpack-plugin`);
 const HtmlWebpackPlugin = require(`html-webpack-plugin`);
 const nodeSassMagicImporter = require(`node-sass-magic-importer`);
-const OptimizeCssAssetsPlugin = require(`optimize-css-assets-webpack-plugin`);
 const path = require(`path`);
+const PostcssAssetsPlugin = require(`postcss-assets-webpack-plugin`);
 const SWPrecacheWebpackPlugin = require(`sw-precache-webpack-plugin`);
 const webpack = require(`webpack`);
 
@@ -51,9 +52,12 @@ if (process.env.NODE_ENV === `production`) {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
-    new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
-      cssProcessor: cssnano,
+    new PostcssAssetsPlugin({
+      test: /\.css$/,
+      plugins: [
+        cssMqPacker(),
+        cssnano(),
+      ],
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
