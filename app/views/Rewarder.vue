@@ -9,7 +9,10 @@
   };
 
   export default {
-    computed: mapGetters([`allTasks`]),
+    computed: mapGetters([
+      `completedTasks`,
+      `incompleteTasks`,
+    ]),
     data() {
       return {
         newTaskTitle: ``,
@@ -42,9 +45,25 @@
   };
 </script>
 
+<style lang="scss" scoped>
+  @import '{ .o-grid } from ~@avalanche/object-grid';
+  @import '{
+    .u-width-12/12,
+    .u-width-6/12@m,
+    .u-width-6/12@m
+  } from ~@avalanche/utility-width';
+</style>
+
 <template>
   <div class="c-rewarder">
-    <task-list :tasks="allTasks"></task-list>
+    <div class="o-grid">
+      <div class="o-grid__item u-width-12 u-width-6/12@m">
+        <task-list :tasks="incompleteTasks"></task-list>
+      </div>
+      <div class="o-grid__item u-width-12 u-width-6/12@m">
+        <task-list :tasks="completedTasks"></task-list>
+      </div>
+    </div>
     <input v-model="newTaskTitle">
     <input v-model="newTaskProgress">
     <custom-button @cButtonClick="addTask">Add task</custom-button>

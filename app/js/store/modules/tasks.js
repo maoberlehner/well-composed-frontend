@@ -41,6 +41,12 @@ const getters = {
   allTasks(state) {
     return state.tasks;
   },
+  completedTasks(state) {
+    return state.tasks.filter(task => task.progress === 100);
+  },
+  incompleteTasks(state) {
+    return state.tasks.filter(task => task.progress < 100);
+  },
 };
 
 const state = {
