@@ -49,7 +49,6 @@
   @import '{ .o-grid } from ~@avalanche/object-grid';
   @import '{
     .u-width-12/12,
-    .u-width-6/12@m,
     .u-width-6/12@m
   } from ~@avalanche/utility-width';
 </style>
