@@ -17,18 +17,18 @@
   @import '{ .o-grid } from ~@avalanche/object-grid';
   @import '{
     .u-width-12/12,
-    .u-width-4/12@m,
-    .u-width-8/12@m
+    .u-width-3/12@m,
+    .u-width-9/12@m
   } from ~@avalanche/utility-width';
 </style>
 
 <template>
   <div id="app" class="c-app">
     <div class="o-grid">
-      <div class="o-grid__item u-width-12/12 u-width-4/12@m">
+      <div class="o-grid__item u-width-12/12 u-width-3/12@m">
         <main-nav></main-nav>
       </div>
-      <main class="o-grid__item u-width-12/12 u-width-8/12@m">
+      <main class="o-grid__item u-width-12/12 u-width-9/12@m">
         <router-view class="view"></router-view>
       </main>
     </div>
