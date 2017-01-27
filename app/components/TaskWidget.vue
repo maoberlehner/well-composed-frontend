@@ -30,6 +30,7 @@
 <style lang="scss" scoped>
   .c-task-widget {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 </style>
@@ -38,6 +39,6 @@
   <div class="c-task-widget">
     <headline class="c-task-widget__headline" :level="2" :size="3">{{ task.title }} ({{ task.progress }}%)</headline>
     <custom-button v-if="task.progress < 100" @cButtonClick="fulfillTask">Add progress</custom-button>
-    <custom-button v-else @cButtonClick="resetTask">Reset</custom-button>
+    <custom-button v-else class="c-button--negative" @cButtonClick="resetTask">Reset</custom-button>
   </div>
 </template>
