@@ -17,10 +17,8 @@
 <style lang="scss" scoped>
   @import '~@avalanche/setting-breakpoints';
   @import '~@avalanche/setting-spacings';
-  @import '{
-    .o-grid,
-    .o-grid--xxl-horizontal
-  } from ~@avalanche/object-grid';
+  @import '{ .o-grid } from ~@avalanche/object-grid';
+  @import 'object/grid';
   @import '{
     .u-width-12/12,
     .u-width-3/12@m,
@@ -34,16 +32,24 @@
       padding: 0;
     }
   }
+
+  .c-app__main {
+    @media (min-width: setting-breakpoint(m)) {
+      padding-top: setting-spacing(xl);
+      padding-right: setting-spacing(xxl);
+      padding-left: setting-spacing(xxl);
+    }
+  }
 </style>
 
 <template>
   <div id="app" class="c-app">
-    <div class="o-grid o-grid--xxl-horizontal c-app__grid">
-      <div class="o-grid__item c-app__sidebar u-width-12/12 u-width-3/12@m">
-        <main-nav></main-nav>
+    <div class="o-grid o-grid--collapsed c-app__grid">
+      <div class="o-grid__item u-width-12/12 u-width-3/12@m">
+        <main-nav class="c-app__sidebar"></main-nav>
       </div>
-      <main class="o-grid__item c-app__main u-width-12/12 u-width-9/12@m">
-        <router-view></router-view>
+      <main class="o-grid__item u-width-12/12 u-width-9/12@m">
+        <router-view class="c-app__main"></router-view>
       </main>
     </div>
   </div>

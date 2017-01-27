@@ -12,6 +12,12 @@
   dependencies:
     "@avalanche/setting-spacings" "^4.0.0-alpha.3"
 
+"@avalanche/object-vertical-spacing@^4.0.0-alpha.1":
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@avalanche/object-vertical-spacing/-/object-vertical-spacing-4.0.0-alpha.1.tgz#4afbe93fdc37a4e2ad5140327f49a4b1e38de60f"
+  dependencies:
+    "@avalanche/setting-spacings" "^4.0.0-alpha.3"
+
 "@avalanche/setting-breakpoints@^4.0.0-alpha.2":
   version "4.0.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@avalanche/setting-breakpoints/-/setting-breakpoints-4.0.0-alpha.2.tgz#4dd3e235273a50f04c624f34adde4d0986975d58"

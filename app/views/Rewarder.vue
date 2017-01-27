@@ -50,22 +50,28 @@
 <style lang="scss" scoped>
   @import '{ .o-grid } from ~@avalanche/object-grid';
   @import '{
+    .o-vertical-spacing,
+    .o-vertical-spacing--l
+  } from ~@avalanche/object-vertical-spacing';
+  @import '{
     .u-width-12/12,
     .u-width-6/12@m
   } from ~@avalanche/utility-width';
 </style>
 
 <template>
-  <div class="c-rewarder">
-    <headline :level="1">Rewarder</headline>
-    <div class="o-grid">
-      <div class="o-grid__item u-width-12 u-width-6/12@m">
-        <headline :level="2">incomplete Tasks</headline>
-        <task-list :tasks="incompleteTasks"></task-list>
-      </div>
-      <div class="o-grid__item u-width-12 u-width-6/12@m">
-        <headline :level="2">completed Tasks</headline>
-        <task-list :tasks="completedTasks"></task-list>
+  <div class="c-rewarder o-vertical-spacing">
+    <headline :level="1" class="c-headline--underlined">Rewarder</headline>
+    <div class="c-rewarder__content">
+      <div class="o-grid">
+        <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
+          <headline :level="2">incomplete Tasks</headline>
+          <task-list :tasks="incompleteTasks"></task-list>
+        </div>
+        <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
+          <headline :level="2">completed Tasks</headline>
+          <task-list :tasks="completedTasks"></task-list>
+        </div>
       </div>
     </div>
     <input v-model="newTaskTitle">

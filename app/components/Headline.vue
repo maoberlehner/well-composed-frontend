@@ -1,3 +1,19 @@
+<style lang="scss" scoped>
+  @import 'settings/generic';
+
+  .c-headline--size1 {
+    font-size: setting-font-size(xxxl);
+  }
+
+  .c-headline--size2 {
+    font-size: setting-font-size(xxl);
+  }
+
+  .c-headline--underlined {
+    border-bottom: 1px solid setting-color(a, gray);
+  }
+</style>
+
 <script>
   export default {
     render: function(createElement) {
