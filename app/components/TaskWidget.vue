@@ -1,5 +1,5 @@
 <script>
-  import CustomButton from './Button.vue';
+  import CustomButton from './form/Button.vue';
   import Headline from './Headline.vue';
 
   export default {

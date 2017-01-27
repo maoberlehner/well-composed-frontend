@@ -1,45 +1,18 @@
 <script>
   import { mapGetters } from 'vuex';
-  import CustomButton from '../components/Button.vue';
   import TaskList from '../components/TaskList.vue';
+  import TaskForm from '../components/TaskForm.vue';
   import Headline from '../components/Headline.vue';
-
-  const validateTask = (task) => {
-    if (task.title.length < 1) return false;
-    return true;
-  };
 
   export default {
     computed: mapGetters([
       `completedTasks`,
       `incompleteTasks`,
     ]),
-    data() {
-      return {
-        newTaskTitle: ``,
-        newTaskProgress: 0,
-      };
-    },
     components: {
-      CustomButton,
       TaskList,
+      TaskForm,
       Headline,
-    },
-    methods: {
-      addTask() {
-        const newTask = {
-          title: this.newTaskTitle,
-          progress: this.newTaskProgress,
-        };
-        if (validateTask(newTask)) {
-          this.$store.dispatch(`ADD_TASK`, newTask);
-          this.clearNewTaskData();
-        }
-      },
-      clearNewTaskData() {
-        this.newTaskTitle = ``;
-        this.newTaskProgress = 0;
-      },
     },
     prefetch(store) {
       return store.dispatch(`FETCH_TASKS`);
@@ -67,6 +40,7 @@
         <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
           <headline :level="2">incomplete Tasks</headline>
           <task-list :tasks="incompleteTasks"></task-list>
+          <task-form></task-form>
         </div>
         <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
           <headline :level="2">completed Tasks</headline>
@@ -74,8 +48,5 @@
         </div>
       </div>
     </div>
-    <input v-model="newTaskTitle">
-    <input v-model="newTaskProgress">
-    <custom-button @cButtonClick="addTask">Add task</custom-button>
   </div>
 </template>
