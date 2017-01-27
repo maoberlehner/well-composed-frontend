@@ -12,9 +12,9 @@
     },
     methods: {
       fulfillTask() {
-        this.$store.dispatch(`FULFILL_TASK`, {
-          taskId: this.task.id,
-          progress: 10,
+        this.$store.dispatch(`UPDATE_TASK`, {
+          id: this.task.id,
+          progress: this.task.progress + 10,
         });
       },
       resetTask() {

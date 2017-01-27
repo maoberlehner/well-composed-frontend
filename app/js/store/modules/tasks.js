@@ -12,10 +12,6 @@ const actions = {
     // @TODO: Query API to update task.
     commit(`UPDATE_TASK`, updateTask);
   },
-  FULFILL_TASK({ commit }, payload) {
-    // @TODO: Query API to update task.
-    commit(`FULFILL_TASK`, payload);
-  },
 };
 
 const mutations = {
@@ -31,11 +27,6 @@ const mutations = {
   UPDATE_TASK(state, updatedTask) {
     const taskToUpdate = state.tasks.find(task => task.id === updatedTask.id);
     Object.assign(taskToUpdate, updatedTask);
-  },
-  FULFILL_TASK(state, payload) {
-    const taskToFulfill = state.tasks.find(task => task.id === payload.taskId);
-    taskToFulfill.progress += payload.progress;
-    if (taskToFulfill.progress > 100) taskToFulfill.progress = 100;
   },
 };
 
