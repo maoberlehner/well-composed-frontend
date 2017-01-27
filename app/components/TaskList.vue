@@ -11,12 +11,17 @@
   };
 </script>
 
+<style lang="scss" scoped>
+  .c-task-list {
+    padding-left: 0;
+    list-style-type: none;
+  }
+</style>
+
 <template>
-  <div class="c-task-list">
-    <ul>
-      <li v-for="task in tasks">
-        <task-widget :task="task"></task-widget>
-      </li>
-    </ul>
-  </div>
+  <ul class="c-task-list">
+    <li v-for="task in tasks">
+      <task-widget :task="task"></task-widget>
+    </li>
+  </ul>
 </template>

@@ -1,5 +1,6 @@
 <script>
   import CustomButton from './Button.vue';
+  import Headline from './Headline.vue';
 
   export default {
     props: [
@@ -7,6 +8,7 @@
     ],
     components: {
       CustomButton,
+      Headline,
     },
     methods: {
       fulfillTask() {
@@ -15,13 +17,27 @@
           progress: 10,
         });
       },
+      resetTask() {
+        this.$store.dispatch(`UPDATE_TASK`, {
+          id: this.task.id,
+          progress: 0,
+        });
+      },
     },
   };
 </script>
 
+<style lang="scss" scoped>
+  .c-task-widget {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+
 <template>
   <div class="c-task-widget">
-    <h2>{{ task.title }} ({{ task.progress }})</h2>
-    <custom-button @cButtonClick="fulfillTask">Done</custom-button>
+    <headline class="c-task-widget__headline" :level="2" :size="3">{{ task.title }} ({{ task.progress }}%)</headline>
+    <custom-button v-if="task.progress < 100" @cButtonClick="fulfillTask">Done</custom-button>
+    <custom-button v-else @cButtonClick="resetTask">Reset</custom-button>
   </div>
 </template>
