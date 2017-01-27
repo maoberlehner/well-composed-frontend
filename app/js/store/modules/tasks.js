@@ -20,15 +20,17 @@ const actions = {
 
 const mutations = {
   SET_TASKS(state, tasks) {
+    // eslint-disable-next-line no-param-reassign
     state.tasks = tasks;
   },
   ADD_TASK(state, newTask) {
+    // eslint-disable-next-line no-param-reassign
     newTask.id = newTask.id || Date.now();
     state.tasks.push(newTask);
   },
-  UPDATE_TASK(state, updateTask) {
-    let taskToUpdate = state.tasks.find(task => task.id === updateTask.id);
-    taskToUpdate = updateTask;
+  UPDATE_TASK(state, updatedTask) {
+    const taskToUpdate = state.tasks.find(task => task.id === updatedTask.id);
+    Object.assign(taskToUpdate, updatedTask);
   },
   FULFILL_TASK(state, payload) {
     const taskToFulfill = state.tasks.find(task => task.id === payload.taskId);
