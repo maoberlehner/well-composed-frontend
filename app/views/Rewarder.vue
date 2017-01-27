@@ -2,6 +2,7 @@
   import { mapGetters } from 'vuex';
   import CustomButton from '../components/Button.vue';
   import TaskList from '../components/TaskList.vue';
+  import Headline from '../components/Headline.vue';
 
   const validateTask = (task) => {
     if (task.title.length < 1) return false;
@@ -22,6 +23,7 @@
     components: {
       CustomButton,
       TaskList,
+      Headline,
     },
     methods: {
       addTask() {
@@ -55,11 +57,14 @@
 
 <template>
   <div class="c-rewarder">
+    <headline :level="1">Rewarder</headline>
     <div class="o-grid">
       <div class="o-grid__item u-width-12 u-width-6/12@m">
+        <headline :level="2">incomplete Tasks</headline>
         <task-list :tasks="incompleteTasks"></task-list>
       </div>
       <div class="o-grid__item u-width-12 u-width-6/12@m">
+        <headline :level="2">completed Tasks</headline>
         <task-list :tasks="completedTasks"></task-list>
       </div>
     </div>

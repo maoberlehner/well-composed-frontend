@@ -1,6 +1,16 @@
+<script>
+  import Headline from '../components/Headline.vue';
+
+  export default {
+    components: {
+      Headline,
+    },
+  };
+</script>
+
 <template>
   <div class="c-about">
-    <h1>About</h1>
+    <headline :level="1">About</headline>
     <p>Hello world.</p>
   </div>
 </template>
