@@ -21,7 +21,7 @@ const config = Object.assign({}, baseConfig, {
     new webpack.LoaderOptionsPlugin({
       options: {
         sassLoader: {
-          includePaths: [path.resolve(__dirname, `../scss`)],
+          includePaths: [path.resolve(__dirname, `../app/scss`)],
           importer: nodeSassMagicImporter({ disableImportOnce: true }),
         },
       },
