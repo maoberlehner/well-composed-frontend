@@ -9,12 +9,6 @@ html {
 * {
   margin: 0;
   padding: 0;
-
-  &,
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
 }
 
 h1,
@@ -23,6 +17,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-weight: 500;
   font-size: setting-font-size(l);
   line-height: 1.15;

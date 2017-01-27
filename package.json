@@ -15,6 +15,8 @@
   "dependencies": {
     "@avalanche/generic-box-sizing-reset": "^4.0.0-alpha.2",
     "@avalanche/object-grid": "^4.0.0-alpha.8",
+    "@avalanche/setting-breakpoints": "^4.0.0-alpha.2",
+    "@avalanche/setting-spacings": "^4.0.0-alpha.3",
     "@avalanche/utility-width": "^4.0.0-alpha.4",
     "es6-promise": "^4.0.5",
     "normalize-scss": "^6.0.0",
