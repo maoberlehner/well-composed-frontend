@@ -1,4 +1,5 @@
 <style lang="scss" scoped>
+  @import '~@avalanche/setting-spacings';
   @import 'settings/generic';
 
   .c-headline--size1 {
@@ -10,6 +11,7 @@
   }
 
   .c-headline--underlined {
+    padding-bottom: setting-spacing(xs, true);
     border-bottom: 1px solid setting-color(a, gray);
   }
 </style>

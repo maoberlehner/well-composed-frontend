@@ -60,7 +60,7 @@
 </style>
 
 <template>
-  <div class="c-rewarder o-vertical-spacing">
+  <div class="c-rewarder o-vertical-spacing o-vertical-spacing--l">
     <headline :level="1" class="c-headline--underlined">Rewarder</headline>
     <div class="c-rewarder__content">
       <div class="o-grid">
