@@ -48,8 +48,12 @@
 <template>
   <nav class="c-main-nav">
     <ul class="c-main-nav__list">
-      <li class="c-main-nav__item"><router-link to="/" class="c-main-nav__link" active-class="c-main-nav__link--active" exact>Rewarder</router-link></li>
-      <li class="c-main-nav__item"><router-link to="/about" class="c-main-nav__link" active-class="c-main-nav__link--active" exact>About</router-link></li>
+      <li class="c-main-nav__item">
+        <router-link class="c-main-nav__link" active-class="c-main-nav__link--active" to="/" exact>Rewarder</router-link>
+      </li>
+      <li class="c-main-nav__item">
+        <router-link class="c-main-nav__link" active-class="c-main-nav__link--active" to="/about" exact>About</router-link>
+      </li>
     </ul>
   </nav>
 </template>

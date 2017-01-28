@@ -2,11 +2,6 @@
   import CustomButton from '../components/form/Button.vue';
   import TextInput from '../components/form/TextInput.vue';
 
-  const validateTask = (task) => {
-    if (task.title.length < 1) return false;
-    return true;
-  };
-
   export default {
     data() {
       return {
@@ -18,12 +13,16 @@
       TextInput,
     },
     methods: {
+      validateTask(task) {
+        if (task.title.length < 1) return false;
+        return true;
+      },
       addTask() {
         const newTask = {
           title: this.newTaskTitle,
           progress: 0,
         };
-        if (validateTask(newTask)) {
+        if (this.validateTask(newTask)) {
           this.$store.dispatch(`ADD_TASK`, newTask);
           this.clearNewTaskData();
         }
@@ -40,6 +39,7 @@
 
   .c-task-form {
     display: flex;
+    background: blue;
   }
 
   .c-task-form__input {
@@ -53,8 +53,8 @@
 </style>
 
 <template>
-  <div class="c-task-form">
+  <form class="c-task-form" @submit.prevent>
     <text-input class="c-task-form__input" label="Title" v-model="newTaskTitle"></text-input>
     <custom-button class="c-task-form__button" @cButtonClick="addTask">Add new task</custom-button>
-  </div>
+  </form>
 </template>

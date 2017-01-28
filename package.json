@@ -69,7 +69,7 @@
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules",
     "lint": "yarn run lint:scripts && yarn run lint:styles",
     "lint:scripts": "eslint build/* app/js/* server.js",
-    "lint:styles": "stylelint 'app/+(js|scss)/**/*.+(scss|vue)'",
+    "lint:styles": "stylelint 'app/**/*.+(scss|vue)'",
     "clean": "rimraf dist"
   }
 }

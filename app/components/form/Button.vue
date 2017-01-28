@@ -14,11 +14,11 @@
 
   .c-button {
     padding: setting-spacing(xs);
-    background: setting-color(a);
+    outline: none;
     border: none;
+    background: setting-color(a);
     color: setting-color(a, contrast);
     cursor: pointer;
-    outline: none;
   }
 
   .c-button--negative {

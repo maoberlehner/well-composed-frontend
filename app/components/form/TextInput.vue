@@ -13,8 +13,8 @@
 
   .c-text-input__input {
     display: block;
-    width: 100%;
     padding: setting-spacing(xs);
+    width: 100%;
     border: none;
     box-shadow: inset 0 0 1px setting-color(c, gray);
   }
