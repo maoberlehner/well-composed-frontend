@@ -10,8 +10,8 @@
 
 <style lang="scss">
   @import '~normalize-scss/sass/normalize/_import-now.scss';
-  @import 'generic/reset';
   @import '~@avalanche/generic-box-sizing-reset';
+  @import 'generic/reset';
 </style>
 
 <style lang="scss" scoped>
