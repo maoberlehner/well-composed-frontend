@@ -6,9 +6,9 @@
   version "4.0.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@avalanche/generic-box-sizing-reset/-/generic-box-sizing-reset-4.0.0-alpha.2.tgz#2da2c98718d5ef1554cb1e2711bf7c814a8d6d47"
 
-"@avalanche/object-grid@^4.0.0-alpha.8":
-  version "4.0.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@avalanche/object-grid/-/object-grid-4.0.0-alpha.8.tgz#bf3b0a292bd0e55d2bb47dd9d67c4c0ffb8c33e1"
+"@avalanche/object-grid@^4.0.0-alpha.9":
+  version "4.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@avalanche/object-grid/-/object-grid-4.0.0-alpha.9.tgz#67c4b4e64ea434e106a432e381b237daac661e2e"
   dependencies:
     "@avalanche/setting-spacings" "^4.0.0-alpha.3"
 

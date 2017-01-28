@@ -17,8 +17,10 @@
 <style lang="scss" scoped>
   @import '~@avalanche/setting-breakpoints';
   @import '~@avalanche/setting-spacings';
-  @import '{ .o-grid } from ~@avalanche/object-grid';
-  @import 'object/grid';
+  @import '{
+    .o-grid,
+    .o-grid--collapsed
+  } from ~@avalanche/object-grid';
   @import '{
     .u-width-12/12,
     .u-width-3/12@m,
