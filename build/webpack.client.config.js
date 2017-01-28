@@ -65,7 +65,7 @@ if (process.env.NODE_ENV === `production`) {
       },
     }),
     new SWPrecacheWebpackPlugin({
-      cacheId: `holy-grail`,
+      cacheId: `well-composed-frontend`,
       filename: `service-worker.js`,
       dontCacheBustUrlsMatching: /./,
       staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/],

@@ -1,4 +1,4 @@
-# holy-grail-frontend
+# A well-composed frontend
 ## About
 ### Author
 Markus Oberlehner  
