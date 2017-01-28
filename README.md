@@ -1,5 +1,5 @@
 # A well-composed frontend
-This is an example app to show how to build a flexible and modular frontend. The main technologies used are [Vue](https://vuejs.org) together with [Vuex](https://vuex.vuejs.org/en/) and [webpack](https://webpack.github.io/) in combination with the [node-sass-magic-importer](https://www.npmjs.com/package/node-sass-magic-importer).
+This is an example app to show how to build a flexible and modular frontend. The main technologies used are [Vue](https://vuejs.org) together with [Vuex](https://vuex.vuejs.org/en/) and [webpack](https://webpack.github.io/) in combination with the [node-sass-magic-importer](https://github.com/maoberlehner/node-sass-magic-importer).
 
 The two main goals of a well-composed frontend are: a solid user experience and a solid developer experience. The former is achieved by building a fast (instantly) loading site with app like behaviour. The later is solved by building upon a solid framework and using components (custom and ready-made) to keep the code DRY.
 
