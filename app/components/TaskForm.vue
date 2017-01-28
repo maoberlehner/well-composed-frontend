@@ -39,7 +39,6 @@
 
   .c-task-form {
     display: flex;
-    background: blue;
   }
 
   .c-task-form__input {
