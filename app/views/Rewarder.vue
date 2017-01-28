@@ -4,6 +4,10 @@
   import TaskForm from '../components/TaskForm.vue';
   import Headline from '../components/Headline.vue';
 
+  function fetchTasks(store) {
+    return store.dispatch(`FETCH_TASKS`);
+  }
+
   export default {
     computed: mapGetters([
       `completedTasks`,
@@ -15,7 +19,10 @@
       Headline,
     },
     prefetch(store) {
-      return store.dispatch(`FETCH_TASKS`);
+      return fetchTasks(store);
+    },
+    beforeMount () {
+      return fetchTasks(this.$store);
     },
   };
 </script>
