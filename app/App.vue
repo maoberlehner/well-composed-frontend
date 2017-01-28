@@ -35,9 +35,7 @@
 
   .c-app__main {
     @media (min-width: setting-breakpoint(m)) {
-      padding-top: setting-spacing(xl);
-      padding-right: setting-spacing(xxl);
-      padding-left: setting-spacing(xxl);
+      padding: setting-spacing(xl) setting-spacing(xxl);
     }
   }
 </style>
