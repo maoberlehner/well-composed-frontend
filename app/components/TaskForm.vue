@@ -36,12 +36,25 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '~@avalanche/setting-spacings';
 
+  .c-task-form {
+    display: flex;
+  }
+
+  .c-task-form__input {
+    flex-grow: 1;
+    margin-right: setting-spacing(xs);
+  }
+
+  .c-task-form__button {
+    align-self: flex-end;
+  }
 </style>
 
 <template>
   <div class="c-task-form">
-    <text-input v-model="newTaskTitle"></text-input>
-    <custom-button @cButtonClick="addTask">Add new task</custom-button>
+    <text-input class="c-task-form__input" label="Title" v-model="newTaskTitle"></text-input>
+    <custom-button class="c-task-form__button" @cButtonClick="addTask">Add new task</custom-button>
   </div>
 </template>
