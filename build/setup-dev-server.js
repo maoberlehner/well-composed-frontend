@@ -1,6 +1,7 @@
 const MemoryFs = require(`memory-fs`);
 const path = require(`path`);
 const webpack = require(`webpack`);
+const WebpackDashboardPlugin = require(`webpack-dashboard/plugin`);
 const webpackDevMiddleware = require(`webpack-dev-middleware`);
 const webpackHotMiddleware = require(`webpack-hot-middleware`);
 
@@ -36,6 +37,7 @@ module.exports = function setupDevServer(app, options) {
       options.indexUpdated(index);
     }
   });
+  clientCompiler.apply(new WebpackDashboardPlugin());
   app.use(webpackHotMiddleware(clientCompiler));
 
   // Watch and update server renderer.
