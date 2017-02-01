@@ -1,10 +1,17 @@
 {
-  "extends": "eslint-config-modularis",
-  "plugins": [
-    "html"
-  ],
   "env": {
     "browser": true,
     "node": true
+  },
+  "extends": "eslint-config-modularis",
+  "plugins": [
+    "compat",
+    "html"
+  ],
+  "rules": {
+    "compat/compat": 2
+  },
+  "settings": {
+    "polyfills": ["serviceworkers"]
   }
 }

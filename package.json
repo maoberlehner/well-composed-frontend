@@ -37,6 +37,7 @@
     "cssnano": "^3.10.0",
     "eslint": "^3.13.1",
     "eslint-config-modularis": "^4.0.0",
+    "eslint-plugin-compat": "^1.0.1",
     "eslint-plugin-html": "^1.7.0",
     "eslint-plugin-import": "^2.2.0",
     "express": "^4.14.0",
@@ -71,5 +72,6 @@
     "lint:scripts": "eslint build/* app/js/* server.js",
     "lint:styles": "stylelint 'app/**/*.+(scss|vue)'",
     "clean": "rimraf dist"
-  }
+  },
+  "browserslist": ["> 1%"]
 }
