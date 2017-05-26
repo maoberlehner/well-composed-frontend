@@ -22,7 +22,7 @@ const config = Object.assign({}, baseConfig, {
       options: {
         sassLoader: {
           includePaths: [path.resolve(__dirname, `../app/scss`)],
-          importer: nodeSassMagicImporter({ disableImportOnce: true }),
+          importer: nodeSassMagicImporter(),
         },
       },
     }),

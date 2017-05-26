@@ -415,18 +415,18 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-browserslist@^1.0.1, browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.5.2, browserslist@~1.5.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-1.5.2.tgz#1c82fde0ee8693e6d15c49b7bff209dc06298c56"
-  dependencies:
-    caniuse-db "^1.0.30000604"
-
-browserslist@^1.6.0:
+browserslist@^1.0.1, browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.5.2, browserslist@^1.6.0:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-1.7.1.tgz#cc9bd193979a2a4b09fdb3df6003fefe48ccefe1"
   dependencies:
     caniuse-db "^1.0.30000617"
     electron-to-chromium "^1.2.1"
+
+browserslist@~1.5.1:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-1.5.2.tgz#1c82fde0ee8693e6d15c49b7bff209dc06298c56"
+  dependencies:
+    caniuse-db "^1.0.30000604"
 
 buble-loader@^0.4.0:
   version "0.4.0"
@@ -526,13 +526,13 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.3.0"
     shelljs "^0.7.0"
 
-caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000604:
-  version "1.0.30000613"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000613.tgz#639133b7a5380c1416f9701d23d54d093dd68299"
-
-caniuse-db@^1.0.30000617:
+caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000617:
   version "1.0.30000618"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000618.tgz#821258ff484f662864f28ffbcf849a6247acf1fa"
+
+caniuse-db@^1.0.30000604:
+  version "1.0.30000613"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000613.tgz#639133b7a5380c1416f9701d23d54d093dd68299"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -2757,21 +2757,22 @@ node-sass-glob-importer@^3.0.2:
     glob "^7.1.1"
     unique-concat "^0.2.2"
 
-node-sass-magic-importer@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/node-sass-magic-importer/-/node-sass-magic-importer-4.1.0.tgz#b19ddf6c52cff2a9970e29df624e587836c74b19"
+node-sass-magic-importer@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/node-sass-magic-importer/-/node-sass-magic-importer-4.1.5.tgz#2c648b550a1ff680b3bc4cb7fdf3dcff4a4c619a"
   dependencies:
     css-node-extract "^0.2.1"
+    glob "^7.1.1"
     node-sass-filter-importer "^1.0.1"
     node-sass-glob-importer "^3.0.2"
-    node-sass-package-importer "^3.0.1"
+    node-sass-package-importer "^3.0.4"
     node-sass-selector-importer "^4.2.0"
     postcss-scss "^0.4.0"
     unique-concat "^0.2.2"
 
-node-sass-package-importer@^3.0.1:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/node-sass-package-importer/-/node-sass-package-importer-3.0.2.tgz#169466a46af4f35f374da67972b7c9726808987b"
+node-sass-package-importer@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/node-sass-package-importer/-/node-sass-package-importer-3.0.4.tgz#c2887e1c790774fc8a36bf1e766774b982a3f2cb"
   dependencies:
     resolve "^1.1.7"
 
