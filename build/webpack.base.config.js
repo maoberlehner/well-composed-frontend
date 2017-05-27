@@ -1,4 +1,6 @@
+const nodeSassMagicImporter = require(`node-sass-magic-importer`);
 const path = require(`path`);
+const webpack = require(`webpack`);
 
 const vueLoaderConfig = require(`./loader-vue.config`);
 
@@ -21,6 +23,11 @@ module.exports = {
   resolve: {
     alias: {
       public: path.resolve(__dirname, `../public`),
+    },
+  },
+  resolveLoader: {
+    alias: {
+      'scss-loader': `sass-loader`,
     },
   },
   module: {
@@ -52,4 +59,14 @@ module.exports = {
   performance: {
     hints: process.env.NODE_ENV === `production` ? `warning` : false,
   },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [path.resolve(__dirname, `../app/scss`)],
+          importer: nodeSassMagicImporter(),
+        },
+      },
+    }),
+  ],
 };

@@ -73,5 +73,7 @@
     "lint:styles": "stylelint 'app/**/*.+(scss|vue)'",
     "clean": "rimraf dist"
   },
-  "browserslist": ["> 1%"]
+  "browserslist": [
+    "> 1%"
+  ]
 }

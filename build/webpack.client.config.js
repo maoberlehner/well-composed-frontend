@@ -2,8 +2,6 @@ const cssMqPacker = require(`css-mqpacker`);
 const cssnano = require(`cssnano`);
 const ExtractTextPlugin = require(`extract-text-webpack-plugin`);
 const HtmlWebpackPlugin = require(`html-webpack-plugin`);
-const nodeSassMagicImporter = require(`node-sass-magic-importer`);
-const path = require(`path`);
 const PostcssAssetsPlugin = require(`postcss-assets-webpack-plugin`);
 const SWPrecacheWebpackPlugin = require(`sw-precache-webpack-plugin`);
 const webpack = require(`webpack`);
@@ -18,14 +16,6 @@ vueLoaderConfig.loaders = {
 
 const config = Object.assign({}, baseConfig, {
   plugins: (baseConfig.plugins || []).concat([
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        sassLoader: {
-          includePaths: [path.resolve(__dirname, `../app/scss`)],
-          importer: nodeSassMagicImporter(),
-        },
-      },
-    }),
     // Strip comments in Vue code.
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || `development`),
