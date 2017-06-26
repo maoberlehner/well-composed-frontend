@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import Vuex from 'vuex';
 
 import actions from './actions';
@@ -8,9 +7,7 @@ import state from './state';
 
 import moduleTasks from './modules/tasks';
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
+const createStore = () => new Vuex.Store({
   state,
   actions,
   getters,
@@ -20,4 +17,4 @@ const store = new Vuex.Store({
   },
 });
 
-export default store;
+export default createStore;

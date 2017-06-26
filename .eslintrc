@@ -1,17 +1,12 @@
 {
+  "root": true,
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true
   },
-  "extends": "eslint-config-modularis",
+  "extends": "@avalanche/eslint-config",
   "plugins": [
-    "compat",
     "html"
-  ],
-  "rules": {
-    "compat/compat": 2
-  },
-  "settings": {
-    "polyfills": ["serviceworkers"]
-  }
+  ]
 }
