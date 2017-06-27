@@ -16,5 +16,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/settings/generic';
-@import '~@avalanche/component-button';
+@import '{ .c-button } from ~@avalanche/component-button';
 </style>
