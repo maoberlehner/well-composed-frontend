@@ -49,8 +49,8 @@ export default {
 }
 
 .c-task-form__input {
-  flex-grow: 1;
   margin-right: setting-spacing(xs);
+  flex-grow: 1;
 }
 
 .c-task-form__button {
