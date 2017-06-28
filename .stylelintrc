@@ -1,8 +1,4 @@
 {
   "extends": "@avalanche/stylelint-config",
-  "processors": ["stylelint-processor-html"],
-  "rules": {
-    "no-empty-source": null,
-    "string-no-newline": null
-  }
+  "processors": ["stylelint-processor-html"]
 }
