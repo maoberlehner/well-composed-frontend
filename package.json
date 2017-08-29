@@ -5,7 +5,7 @@
   "dependencies": {
     "@avalanche/component-button": "^4.0.0-alpha.6",
     "@avalanche/generic-box-sizing-reset": "^4.0.0-alpha.4",
-    "@avalanche/object-grid": "^4.0.0-alpha.13",
+    "@avalanche/object-grid": "^4.0.0-alpha.14",
     "@avalanche/object-vertical-spacing": "^4.0.0-alpha.4",
     "@avalanche/setting-breakpoints": "^4.0.0-alpha.4",
     "@avalanche/setting-colors": "^4.0.0-alpha.4",
@@ -19,7 +19,7 @@
     "@avalanche/eslint-config": "^1.0.2",
     "@avalanche/stylelint-config": "^0.1.2",
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.4.1",
+    "eslint": "^4.5.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.2.0",
     "eslint-plugin-import": "^2.7.0",
