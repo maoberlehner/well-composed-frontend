@@ -38,7 +38,6 @@
     "generate": "nuxt generate",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:styles": "stylelint '+(assets|components|layouts|pages)/**/*.+(scss|vue)'",
-    "precommit": "npm run lint"
+    "lint:styles": "stylelint '+(assets|components|layouts|pages)/**/*.+(scss|vue)'"
   }
 }
