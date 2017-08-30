@@ -25,7 +25,7 @@ module.exports = {
     extend(config, ctx) {
       const vueLoader = config.module.rules.find(rule => rule.loader === `vue-loader`);
 
-      vueLoader.query.loaders.scss = [
+      vueLoader.options.loaders.scss = [
         { loader: `vue-style-loader?sourceMap` },
         { loader: `css-loader?sourceMap` },
         {
