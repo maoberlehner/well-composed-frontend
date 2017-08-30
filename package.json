@@ -13,7 +13,7 @@
     "@avalanche/utility-width": "^4.0.0-alpha.7",
     "normalize-scss": "^7.0.0",
     "nuxt": "latest",
-    "vuex": "^2.3.1"
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "@avalanche/eslint-config": "^1.0.2",
