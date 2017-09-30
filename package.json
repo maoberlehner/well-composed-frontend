@@ -1,7 +1,26 @@
 {
-  "name": "a-well-composed-frontend",
+  "name": "well-composed-frontend",
   "version": "0.0.1",
+  "description": "This is an example app to show how to build a flexible and modular frontend. The main technologies used are Vue together with Vuex and Nuxt.js in combination with the node-sass-magic-importer.",
   "author": "Markus Oberlehner",
+  "homepage": "https://github.com/maoberlehner/well-composed-frontend",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "npm run lint:scripts && npm run lint:styles",
+    "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:styles": "stylelint '+(assets|components|layouts|pages)/**/*.+(scss|vue)'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maoberlehner/well-composed-frontend"
+  },
+  "bugs": {
+    "url": "https://github.com/maoberlehner/well-composed-frontend/issues"
+  },
   "dependencies": {
     "@avalanche/component-button": "^4.0.0-alpha.6",
     "@avalanche/generic-box-sizing-reset": "^4.0.0-alpha.4",
@@ -30,14 +49,5 @@
     "sass-loader": "^6.0.6",
     "stylelint": "^8.1.1",
     "stylelint-processor-html": "^1.0.0"
-  },
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "npm run lint:scripts && npm run lint:styles",
-    "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:styles": "stylelint '+(assets|components|layouts|pages)/**/*.+(scss|vue)'"
   }
 }
