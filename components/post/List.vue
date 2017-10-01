@@ -1,20 +1,21 @@
 <template>
-  <ul class="c-task-list">
-    <li class="c-task-list__item" v-for="task in tasks" :task="task" :key="task.id">
-      <wcf-task-widget :task="task"></wcf-task-widget>
+  <ul class="c-post-list">
+    <li class="c-post-list__item" v-for="post in posts" :key="post.id">
+      <post-widget :post="post"></post-widget>
     </li>
   </ul>
 </template>
 
 <script>
-import WcfTaskWidget from './TaskWidget.vue';
+import PostWidget from './Widget.vue';
 
 export default {
+  name: `PostList`,
   props: [
-    `tasks`,
+    `posts`,
   ],
   components: {
-    WcfTaskWidget,
+    PostWidget,
   },
 };
 </script>
@@ -22,14 +23,14 @@ export default {
 <style lang="scss" scoped>
 @import '~@avalanche/setting-colors';
 @import '~@avalanche/setting-spacings';
-@import '../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
-.c-task-list {
+.c-post-list {
   padding-left: 0;
   list-style-type: none;
 }
 
-.c-task-list__item {
+.c-post-list__item {
   &:not(:last-child) {
     margin-bottom: setting-spacing(xs);
     padding-bottom: setting-spacing(xs);

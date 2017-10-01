@@ -1,12 +1,13 @@
 <template>
-  <div class="c-text-input">
-    <label class="c-text-input__label" :for="_uid" v-if="label">{{ label }}</label>
-    <input class="c-text-input__input" :id="_uid" :value="value" @input="$emit('input', $event.target.value)">
+  <div class="c-form-input">
+    <label class="c-form-input__label" :for="_uid" v-if="label">{{ label }}</label>
+    <input class="c-form-input__input" :id="_uid" :value="value" @input="$emit('input', $event.target.value)">
   </div>
 </template>
 
 <script>
 export default {
+  name: `FormInput`,
   props: [
     `label`,
     `value`,
@@ -17,9 +18,9 @@ export default {
 <style lang="scss" scoped>
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
-.c-text-input__input {
+.c-form-input__input {
   display: block;
   padding: setting-spacing(xs);
   width: 100%;

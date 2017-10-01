@@ -22,19 +22,31 @@ module.exports = {
     /**
      * Run ESLint on save.
      */
-    extend(config, ctx) {
+    extend(config, { isClient }) {
       const vueLoader = config.module.rules.find(rule => rule.loader === `vue-loader`);
 
       vueLoader.options.loaders.scss = [
-        { loader: `vue-style-loader?sourceMap` },
-        { loader: `css-loader?sourceMap` },
+        { loader: `vue-style-loader`, options: { sourceMap: true } },
         {
-          loader: `sass-loader?sourceMap`,
-          options: { importer: nodeSassMagicImporter() },
+          loader: `css-loader`,
+          options: {
+            minimize: true,
+            importLoaders: 1,
+            sourceMap: true,
+          },
+        },
+        {
+          loader: `sass-loader`,
+          options: {
+            // This does not work because of:
+            // https://github.com/vuejs/vue-loader/issues/673
+            importer: nodeSassMagicImporter(),
+            sourceMap: true,
+          },
         },
       ];
 
-      if (ctx.isClient) {
+      if (isClient) {
         config.module.rules.push({
           enforce: `pre`,
           test: /\.(js|vue)$/,
@@ -43,5 +55,6 @@ module.exports = {
         });
       }
     },
+    extractCSS: true,
   },
 };

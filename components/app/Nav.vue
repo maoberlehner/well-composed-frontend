@@ -1,23 +1,34 @@
 <template>
-  <nav class="c-main-nav">
-    <ul class="c-main-nav__list">
-      <li class="c-main-nav__item">
-        <router-link class="c-main-nav__link" active-class="c-main-nav__link--active" to="/" exact>To Do</router-link>
+  <nav class="c-app-nav">
+    <ul class="c-app-nav__list">
+      <li class="c-app-nav__item">
+        <router-link class="c-app-nav__link" active-class="c-app-nav__link--active" to="/" exact>Posts</router-link>
       </li>
-      <li class="c-main-nav__item">
-        <router-link class="c-main-nav__link" active-class="c-main-nav__link--active" to="/about" exact>About</router-link>
+      <li class="c-app-nav__item">
+        <router-link class="c-app-nav__link" active-class="c-app-nav__link--active" to="/about" exact>About</router-link>
       </li>
     </ul>
   </nav>
 </template>
 
+<script>
+export default {
+  name: `AppNav`,
+  methods: {
+    click() {
+      this.$emit(`click`);
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 @import '~@avalanche/setting-breakpoints';
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
-.c-main-nav__list {
+.c-app-nav__list {
   padding-left: 0;
   list-style-type: none;
   text-align: center;
@@ -27,7 +38,7 @@
   }
 }
 
-.c-main-nav__item {
+.c-app-nav__item {
   display: inline-block;
 
   @media (min-width: setting-breakpoint(m)) {
@@ -35,7 +46,7 @@
   }
 }
 
-.c-main-nav__link {
+.c-app-nav__link {
   padding-right: setting-spacing(m);
   padding-left: setting-spacing(m);
   text-decoration: none;

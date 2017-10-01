@@ -30,6 +30,7 @@
     "@avalanche/setting-colors": "^4.0.0-alpha.4",
     "@avalanche/setting-spacings": "^4.0.0-alpha.5",
     "@avalanche/utility-width": "^4.0.0-alpha.7",
+    "axios": "^0.16.2",
     "normalize-scss": "^7.0.0",
     "nuxt": "latest",
     "vuex": "^2.4.1"
@@ -38,7 +39,7 @@
     "@avalanche/eslint-config": "^1.0.2",
     "@avalanche/stylelint-config": "^0.1.2",
     "babel-eslint": "^8.0.1",
-    "eslint": "^4.7.2",
+    "eslint": "^4.8.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.2.2",
     "eslint-plugin-import": "^2.7.0",

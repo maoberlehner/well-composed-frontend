@@ -4,17 +4,14 @@ import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
 import state from './state';
-
-import moduleTasks from './modules/tasks';
+import modules from './modules';
 
 const createStore = () => new Vuex.Store({
   state,
   actions,
   getters,
   mutations,
-  modules: {
-    moduleTasks,
-  },
+  modules,
 });
 
 export default createStore;

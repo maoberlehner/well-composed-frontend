@@ -6,6 +6,9 @@
     "node": true
   },
   "extends": "@avalanche/eslint-config",
+  "rules": {
+    "import/prefer-default-export": 0
+  },
   "plugins": [
     "html"
   ]

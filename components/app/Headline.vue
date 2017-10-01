@@ -1,18 +1,19 @@
 <script>
 export default {
-  render: function render(createElement) {
+  name: `AppHeadline`,
+  render(createElement) {
     const size = this.size || this.level;
-    const headline = createElement(
+
+    return createElement(
       `h${this.level}`,
       {
         class: {
-          'c-headline': true,
+          'c-app-headline': true,
+          [`c-app-headline--size${size}`]: true,
         },
       },
       this.$slots.default,
     );
-    headline.data.class[`c-headline--size${size}`] = true;
-    return headline;
   },
   props: {
     level: {
@@ -28,17 +29,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@avalanche/setting-spacings';
-@import '../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
-.c-headline--size1 {
+.c-app-headline--size1 {
   font-size: setting-font-size(xxxl);
 }
 
-.c-headline--size2 {
+.c-app-headline--size2 {
   font-size: setting-font-size(xxl);
 }
 
-.c-headline--underlined {
+.c-app-headline--underlined {
   padding-bottom: setting-spacing(xs, true);
   border-bottom: 1px solid setting-color(a, gray);
 }

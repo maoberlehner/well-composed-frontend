@@ -1,38 +1,63 @@
 <template>
   <div class="o-vertical-spacing o-vertical-spacing--l">
-    <wcf-headline :level="1">To Do</wcf-headline>
+    <app-headline :level="1">Posts</app-headline>
     <div class="o-grid">
       <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
-        <wcf-headline :level="2">incomplete Tasks</wcf-headline>
-        <wcf-task-list :tasks="incompleteTasks"></wcf-task-list>
-        <wcf-task-form></wcf-task-form>
+        <app-headline :level="2">Post list</app-headline>
+        <post-list :posts="posts"></post-list>
       </div>
       <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
-        <wcf-headline :level="2">completed Tasks</wcf-headline>
-        <wcf-task-list :tasks="completedTasks"></wcf-task-list>
+        <app-headline :level="2">Current post</app-headline>
+        <post-widget :post="currentPost"></post-widget>
+
+        <app-headline :level="3">Load new post</app-headline>
+        <form-input label="Post ID" v-model="postId"></form-input>
+        <form-button @click="fetchPost(postId)">Load</form-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import WcfTaskList from '../components/TaskList.vue';
-import WcfTaskForm from '../components/TaskForm.vue';
-import WcfHeadline from '../components/Headline.vue';
+import { createNamespacedHelpers } from 'vuex';
+
+import AppHeadline from '../components/app/Headline.vue';
+import PostList from '../components/post/List.vue';
+import PostWidget from '../components/post/Widget.vue';
+import FormInput from '../components/form/Input.vue';
+import FormButton from '../components/form/Button.vue';
+
+const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
-  computed: mapGetters([
-    `completedTasks`,
-    `incompleteTasks`,
-  ]),
+  data() {
+    return {
+      postId: 1,
+    };
+  },
+  computed: {
+    ...mapState({
+      posts: state => state.posts,
+      currentPost: state => state.current,
+    }),
+  },
+  methods: {
+    ...mapActions([
+      `fetchPost`,
+    ]),
+  },
   components: {
-    WcfTaskList,
-    WcfTaskForm,
-    WcfHeadline,
+    AppHeadline,
+    PostList,
+    PostWidget,
+    FormInput,
+    FormButton,
   },
   fetch({ store }) {
-    return store.dispatch(`FETCH_TASKS`);
+    return Promise.all([
+      store.dispatch(`post/fetchPosts`),
+      store.dispatch(`post/fetchPost`, 1),
+    ]);
   },
 };
 </script>

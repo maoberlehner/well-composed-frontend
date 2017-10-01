@@ -1,16 +1,16 @@
 <template>
   <div class="o-vertical-spacing o-vertical-spacing--l">
-    <wcf-headline :level="1">About</wcf-headline>
+    <app-headline :level="1">About</app-headline>
     <p>Lorem Ipsum dolor sit amet.</p>
   </div>
 </template>
 
 <script>
-import WcfHeadline from '../../components/Headline.vue';
+import AppHeadline from '../../components/app/Headline.vue';
 
 export default {
   components: {
-    WcfHeadline,
+    AppHeadline,
   },
 };
 </script>
