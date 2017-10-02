@@ -14,11 +14,6 @@
 <script>
 export default {
   name: `AppNav`,
-  methods: {
-    click() {
-      this.$emit(`click`);
-    },
-  },
 };
 </script>
 
