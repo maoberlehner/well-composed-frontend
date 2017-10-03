@@ -15,6 +15,7 @@ module.exports = {
    * Customize the progress-bar color.
    */
   loading: { color: `#00acc1` },
+  plugins: [`~/plugins/vee-validate`],
   /**
    * Build configuration.
    */

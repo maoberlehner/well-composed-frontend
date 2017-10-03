@@ -1,7 +1,8 @@
 <template>
   <div class="c-form-input">
-    <label class="c-form-input__label" :for="_uid" v-if="label">{{ label }}</label>
-    <input class="c-form-input__input" :id="_uid" :value="value" @input="$emit('input', $event.target.value)">
+    <slot name="top"></slot>
+    <input class="c-form-input__input" :id="id" :value="value" @input="$emit('input', $event.target.value)">
+    <slot name="bottom"></slot>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 export default {
   name: `FormInput`,
   props: [
+    `id`,
     `label`,
     `value`,
   ],

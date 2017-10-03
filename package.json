@@ -33,6 +33,8 @@
     "axios": "^0.16.2",
     "normalize-scss": "^7.0.0",
     "nuxt": "latest",
+    "vee-validate": "^2.0.0-rc.18",
+    "vue": "^2.4.4",
     "vuex": "^2.4.1"
   },
   "devDependencies": {
