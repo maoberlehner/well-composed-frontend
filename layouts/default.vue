@@ -46,11 +46,11 @@ export default {
   @media (min-width: setting-breakpoint(m)) {
     padding: 0;
   }
-}
 
-.c-layout-default__main {
-  @media (min-width: setting-breakpoint(m)) {
-    padding: setting-spacing(xl) setting-spacing(xxl);
+  &__main {
+    @media (min-width: setting-breakpoint(m)) {
+      padding: setting-spacing(xl) setting-spacing(xxl);
+    }
   }
 }
 </style>

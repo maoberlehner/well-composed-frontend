@@ -28,13 +28,13 @@ export default {
 .c-post-list {
   padding-left: 0;
   list-style-type: none;
-}
 
-.c-post-list__item {
-  &:not(:last-child) {
-    margin-bottom: setting-spacing(xs);
-    padding-bottom: setting-spacing(xs);
-    border-bottom: 1px solid setting-color(a, gray);
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: setting-spacing(xs);
+      padding-bottom: setting-spacing(xs);
+      border-bottom: 1px solid setting-color(a, gray);
+    }
   }
 }
 </style>

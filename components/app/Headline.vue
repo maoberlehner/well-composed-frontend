@@ -31,16 +31,18 @@ export default {
 @import '~@avalanche/setting-spacings';
 @import '../../assets/scss/settings/generic';
 
-.c-app-headline--size1 {
-  font-size: setting-font-size(xxxl);
-}
+.c-app-headline {
+  &--size1 {
+    font-size: setting-font-size(xxxl);
+  }
 
-.c-app-headline--size2 {
-  font-size: setting-font-size(xxl);
-}
+  &--size2 {
+    font-size: setting-font-size(xxl);
+  }
 
-.c-app-headline--underlined {
-  padding-bottom: setting-spacing(xs, true);
-  border-bottom: 1px solid setting-color(a, gray);
+  &--underlined {
+    padding-bottom: setting-spacing(xs, true);
+    border-bottom: 1px solid setting-color(a, gray);
+  }
 }
 </style>
