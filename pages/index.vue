@@ -2,16 +2,32 @@
   <div class="o-vertical-spacing o-vertical-spacing--l">
     <app-headline :level="1">Posts</app-headline>
     <div class="o-grid">
-      <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
+      <div
+        class="
+          o-grid__item
+          o-vertical-spacing
+          o-vertical-spacing--l
+          u-width-12/12
+          u-width-6/12@m">
         <app-headline :level="2">Post list</app-headline>
         <post-list :posts="posts"></post-list>
       </div>
-      <div class="o-grid__item o-vertical-spacing o-vertical-spacing--l u-width-12/12 u-width-6/12@m">
+      <div
+        class="
+          o-grid__item
+          o-vertical-spacing
+          o-vertical-spacing--l
+          u-width-12/12
+          u-width-6/12@m">
         <app-headline :level="2">Current post</app-headline>
         <post-widget :post="currentPost"></post-widget>
 
         <app-headline :level="3">Load new post</app-headline>
-        <form-input id="post-id" data-vv-name="Post ID" v-model="postId" v-validate="'required|numeric'">
+        <form-input
+          id="post-id"
+          data-vv-name="Post ID"
+          v-model="postId"
+          v-validate="'required|numeric'">
           <form-label slot="top" id="post-id">Post ID</form-label>
           <form-message slot="bottom" v-show="errors.has('Post ID')" type="error">
             {{ errors.first('Post ID') }}
@@ -24,6 +40,7 @@
 </template>
 
 <script>
+/* eslint-disable no-use-before-define */
 import { createNamespacedHelpers } from 'vuex';
 
 import AppHeadline from '../components/app/Headline.vue';
@@ -69,6 +86,7 @@ export default {
     ]);
   },
 };
+/* eslint-enable */
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,11 @@
 <template>
   <div class="c-form-input">
     <slot name="top"></slot>
-    <input class="c-form-input__input" :id="id" :value="value" @input="$emit('input', $event.target.value)">
+    <input
+      class="c-form-input__input"
+      :id="id"
+      :value="value"
+      @input="$emit('input', $event.target.value)">
     <slot name="bottom"></slot>
   </div>
 </template>
@@ -9,11 +13,17 @@
 <script>
 export default {
   name: `FormInput`,
-  props: [
-    `id`,
-    `label`,
-    `value`,
-  ],
+  props: {
+    id: {
+      type: String,
+    },
+    label: {
+      type: String,
+    },
+    value: {
+      type: String,
+    },
+  },
 };
 </script>
 

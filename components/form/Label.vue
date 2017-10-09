@@ -7,8 +7,10 @@
 <script>
 export default {
   name: `FormLabel`,
-  props: [
-    `id`,
-  ],
+  props: {
+    id: {
+      type: String,
+    },
+  },
 };
 </script>

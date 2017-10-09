@@ -1,15 +1,25 @@
 {
   "root": true,
-  "parser": "babel-eslint",
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "env": {
     "browser": true,
     "node": true
   },
-  "extends": "@avalanche/eslint-config",
+  "extends": [
+    "@avalanche/eslint-config",
+    "plugin:vue/recommended"
+  ],
   "rules": {
-    "import/prefer-default-export": 0
-  },
-  "plugins": [
-    "html"
-  ]
+    "import/prefer-default-export": 0,
+    "vue/require-prop-types": 2,
+    "vue/max-attributes-per-line": [2, {
+      "singleline": 3,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false
+      }
+    }]
+  }
 }

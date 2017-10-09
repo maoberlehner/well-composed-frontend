@@ -2,10 +2,22 @@
   <nav class="c-app-nav">
     <ul class="c-app-nav__list">
       <li class="c-app-nav__item">
-        <router-link class="c-app-nav__link" active-class="c-app-nav__link--active" to="/" exact>Posts</router-link>
+        <router-link
+          class="c-app-nav__link"
+          active-class="c-app-nav__link--active"
+          to="/"
+          exact>
+          Posts
+        </router-link>
       </li>
       <li class="c-app-nav__item">
-        <router-link class="c-app-nav__link" active-class="c-app-nav__link--active" to="/about" exact>About</router-link>
+        <router-link
+          class="c-app-nav__link"
+          active-class="c-app-nav__link--active"
+          to="/about"
+          exact>
+          About
+        </router-link>
       </li>
     </ul>
   </nav>

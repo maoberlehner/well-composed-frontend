@@ -11,9 +11,11 @@ import PostWidget from './Widget.vue';
 
 export default {
   name: `PostList`,
-  props: [
-    `posts`,
-  ],
+  props: {
+    posts: {
+      type: Array,
+    },
+  },
   components: {
     PostWidget,
   },

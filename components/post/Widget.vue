@@ -12,9 +12,11 @@ import AppHeadline from '../app/Headline.vue';
 
 export default {
   name: `PostWidget`,
-  props: [
-    `post`,
-  ],
+  props: {
+    post: {
+      type: Object,
+    },
+  },
   components: {
     AppHeadline,
   },

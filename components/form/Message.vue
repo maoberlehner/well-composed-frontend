@@ -1,5 +1,6 @@
 <template>
-  <div :class="{
+  <div
+    :class="{
       'c-form-message': true,
       'c-form-message--success': isSuccess,
       'c-form-message--error': isError,
@@ -19,9 +20,11 @@ export default {
     isWarning() { return this.type === `warning`; },
     isInfo() { return this.type === `info`; },
   },
-  props: [
-    `type`,
-  ],
+  props: {
+    type: {
+      type: String,
+    },
+  },
 };
 </script>
 
