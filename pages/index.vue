@@ -23,17 +23,17 @@
         <post-widget :post="currentPost"></post-widget>
 
         <app-headline :level="3">Load new post</app-headline>
-        <form-input
+        <app-input
           id="post-id"
           data-vv-name="Post ID"
           v-model="postId"
           v-validate="'required|numeric'">
-          <form-label slot="top" id="post-id">Post ID</form-label>
-          <form-message slot="bottom" v-show="errors.has('Post ID')" type="error">
+          <app-label slot="top" id="post-id">Post ID</app-label>
+          <app-message slot="bottom" v-show="errors.has('Post ID')" type="error">
             {{ errors.first('Post ID') }}
-          </form-message>
-        </form-input>
-        <form-button @click="fetchPost(postId)">Load</form-button>
+          </app-message>
+        </app-input>
+        <app-button @click="fetchPost(postId)">Load</app-button>
       </div>
     </div>
   </div>
@@ -43,13 +43,13 @@
 /* eslint-disable no-use-before-define */
 import { createNamespacedHelpers } from 'vuex';
 
-import AppHeadline from '../components/app/Headline.vue';
-import PostList from '../components/post/List.vue';
-import PostWidget from '../components/post/Widget.vue';
-import FormInput from '../components/form/Input.vue';
-import FormButton from '../components/form/Button.vue';
-import FormMessage from '../components/form/Message.vue';
-import FormLabel from '../components/form/Label.vue';
+import AppHeadline from '../components/app/AppHeadline.vue';
+import AppInput from '../components/app/AppInput.vue';
+import AppButton from '../components/app/AppButton.vue';
+import AppMessage from '../components/app/AppMessage.vue';
+import AppLabel from '../components/app/AppLabel.vue';
+import PostList from '../components/post/PostList.vue';
+import PostWidget from '../components/post/PostWidget.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
@@ -72,12 +72,12 @@ export default {
   },
   components: {
     AppHeadline,
+    AppInput,
+    AppButton,
+    AppMessage,
+    AppLabel,
     PostList,
     PostWidget,
-    FormInput,
-    FormButton,
-    FormMessage,
-    FormLabel,
   },
   fetch({ store }) {
     return Promise.all([

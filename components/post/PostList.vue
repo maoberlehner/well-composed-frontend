@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PostWidget from './Widget.vue';
+import PostWidget from './PostWidget.vue';
 
 export default {
   name: `PostList`,

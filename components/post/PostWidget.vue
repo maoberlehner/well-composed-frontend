@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import AppHeadline from '../app/Headline.vue';
+import AppHeadline from '../app/AppHeadline.vue';
 
 export default {
   name: `PostWidget`,

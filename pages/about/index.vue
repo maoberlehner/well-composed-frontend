@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AppHeadline from '../../components/app/Headline.vue';
+import AppHeadline from '../../components/app/AppHeadline.vue';
 
 export default {
   components: {

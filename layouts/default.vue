@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import AppNav from '../components/app/Nav.vue';
+import AppNav from '../components/app/AppNav.vue';
 
 export default {
   components: {
