@@ -28,8 +28,8 @@
           data-vv-name="Post ID"
           v-model="postId"
           v-validate="'required|numeric'">
-          <app-label slot="top" id="post-id">Post ID</app-label>
-          <app-message slot="bottom" v-show="errors.has('Post ID')" type="error">
+          <app-label slot="start" id="post-id">Post ID</app-label>
+          <app-message slot="end" v-show="errors.has('Post ID')" type="error">
             {{ errors.first('Post ID') }}
           </app-message>
         </app-input>
