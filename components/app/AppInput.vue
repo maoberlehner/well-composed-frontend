@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: `FormInput`,
+  name: `AppInput`,
   props: {
     id: {
       type: String,

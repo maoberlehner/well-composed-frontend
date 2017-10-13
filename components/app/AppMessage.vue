@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: `FormMessage`,
+  name: `AppMessage`,
   computed: {
     isSuccess() { return this.type === `success`; },
     isError() { return this.type === `error`; },

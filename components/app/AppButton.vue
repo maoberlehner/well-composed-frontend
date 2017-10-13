@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: `FormButton`,
+  name: `AppButton`,
   methods: {
     click() {
       this.$emit(`click`);
