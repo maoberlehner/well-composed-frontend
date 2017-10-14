@@ -35,9 +35,9 @@
     "axios": "^0.16.2",
     "normalize-scss": "^7.0.0",
     "nuxt": "latest",
-    "vee-validate": "^2.0.0-rc.18",
-    "vue": "^2.4.4",
-    "vuex": "^2.4.1"
+    "vee-validate": "^2.0.0-rc.19",
+    "vue": "^2.5.2",
+    "vuex": "^3.0.0"
   },
   "devDependencies": {
     "@avalanche/eslint-config": "^1.0.2",
@@ -48,20 +48,22 @@
     "eslint": "^4.8.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^3.13.1",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "node-sass": "^4.5.3",
-    "node-sass-magic-importer": "^5.0.0-alpha.14",
+    "node-sass-magic-importer": "^5.0.0-alpha.15",
     "require-extension-hooks": "^0.3.2",
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^0.4.1",
     "sass-loader": "^6.0.6",
     "sinon": "^4.0.1",
-    "stylelint": "^8.1.1",
+    "stylelint": "^8.2.0",
     "stylelint-processor-html": "^1.0.0",
+    "vue-server-renderer": "^2.5.2",
+    "vue-template-compiler": "^2.5.2",
     "vue-test-utils": "^1.0.0-beta.2"
   },
   "ava": {
