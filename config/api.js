@@ -1,3 +1,3 @@
 export default {
-  baseUrl: `https://some.thing/`,
+  baseUrl: `https://jsonplaceholder.typicode.com/`,
 };

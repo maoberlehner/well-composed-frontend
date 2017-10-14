@@ -12,7 +12,9 @@
     "generate": "nuxt generate",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:styles": "stylelint --syntax scss '+(assets|components|layouts|pages)/**/*.+(scss|vue)'"
+    "lint:styles": "stylelint --syntax scss '+(assets|components|layouts|pages)/**/*.+(scss|vue)'",
+    "test:unit": "ava test/unit/**/**/**/*.spec.js",
+    "test": "npm run test:unit"
   },
   "repository": {
     "type": "git",
@@ -40,17 +42,31 @@
   "devDependencies": {
     "@avalanche/eslint-config": "^1.0.2",
     "@avalanche/stylelint-config": "^0.1.2",
+    "ava": "^0.22.0",
     "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^4.8.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^3.13.1",
+    "jsdom": "^11.3.0",
+    "jsdom-global": "^3.0.2",
     "node-sass": "^4.5.3",
     "node-sass-magic-importer": "^5.0.0-alpha.14",
+    "require-extension-hooks": "^0.3.2",
+    "require-extension-hooks-babel": "^0.1.1",
+    "require-extension-hooks-vue": "^0.4.1",
     "sass-loader": "^6.0.6",
+    "sinon": "^4.0.1",
     "stylelint": "^8.1.1",
-    "stylelint-processor-html": "^1.0.0"
+    "stylelint-processor-html": "^1.0.0",
+    "vue-test-utils": "^1.0.0-beta.2"
+  },
+  "ava": {
+    "require": [
+      "./test/unit/setup.js"
+    ]
   }
 }
