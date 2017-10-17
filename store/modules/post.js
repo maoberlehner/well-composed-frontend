@@ -1,4 +1,4 @@
-export function makePost({ getPost, listPosts }) {
+export function makePost({ getPost, listPosts, types }) {
   const actions = {
     fetchPosts({ commit }) {
       return listPosts()
@@ -17,11 +17,11 @@ export function makePost({ getPost, listPosts }) {
   };
 
   const mutations = {
-    SET_POSTS(state, posts) {
+    [types.SET_POSTS](state, posts) {
       // eslint-disable-next-line no-param-reassign
       state.posts = posts;
     },
-    SET_POST(state, post) {
+    [types.SET_POST](state, post) {
       // eslint-disable-next-line no-param-reassign
       state.current = post;
     },
