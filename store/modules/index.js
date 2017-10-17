@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-import { makeApiEndpoint } from '../../services/api-endpoint';
+import { makeApi } from '../../utils/api';
 import { makeGetPost, makeListPosts } from '../../services/post';
 import apiConfig from '../../config/api';
 
 import { makePost } from './post';
 
 const { baseUrl } = apiConfig;
-const apiEndpoint = makeApiEndpoint({ axios, baseUrl });
+const apiEndpoint = makeApi({ axios, baseUrl });
 
 const postApiEndpoint = apiEndpoint(`posts/`);
 const getPost = makeGetPost({ api: postApiEndpoint });
