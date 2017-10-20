@@ -1,14 +1,15 @@
-import Vue from 'vue';
 import Vuex from 'vuex';
 import VeeValidate from 'vee-validate';
 import sinon from 'sinon';
-import { shallow } from 'vue-test-utils';
+import { createLocalVue, shallow } from 'vue-test-utils';
 import test from 'ava';
 
 import pageIndex from '../../../pages/index.vue';
 
-Vue.use(Vuex);
-Vue.use(VeeValidate);
+const localVue = createLocalVue();
+
+localVue.use(Vuex);
+localVue.use(VeeValidate);
 
 let modules;
 let store;
@@ -30,7 +31,7 @@ test.before(() => {
 });
 
 test(`It should render a \`<div>\`.`, (t) => {
-  const wrapper = shallow(pageIndex, { store });
+  const wrapper = shallow(pageIndex, { store, localVue });
 
   t.true(wrapper.is(`div`));
 });
