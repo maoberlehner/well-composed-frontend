@@ -3,7 +3,7 @@ import test from 'ava';
 
 import PostList from '../../../components/post/PostList.vue';
 
-test(`Should render an \`<ul>\`.`, (t) => {
+test(`It should render an \`<ul>\`.`, (t) => {
   const wrapper = shallow(PostList);
 
   t.true(wrapper.is(`ul`));

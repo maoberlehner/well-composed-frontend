@@ -29,7 +29,7 @@ test.before(() => {
   });
 });
 
-test(`Should render a \`<div>\`.`, (t) => {
+test(`It should render a \`<div>\`.`, (t) => {
   const wrapper = shallow(pageIndex, { store });
 
   t.true(wrapper.is(`div`));

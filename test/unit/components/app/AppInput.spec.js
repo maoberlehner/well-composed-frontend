@@ -3,13 +3,13 @@ import test from 'ava';
 
 import AppInput from '../../../../components/app/AppInput.vue';
 
-test(`Should render a \`<div>\`.`, (t) => {
+test(`It should render a \`<div>\`.`, (t) => {
   const wrapper = shallow(AppInput);
 
   t.true(wrapper.is(`div`));
 });
 
-test(`Changing the input should emit an \`input\` event.`, (t) => {
+test(`It should emit an event when the input is changed.`, (t) => {
   const wrapper = shallow(AppInput, {
     propsData: { value: `test` },
   });
