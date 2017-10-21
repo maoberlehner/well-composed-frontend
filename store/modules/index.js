@@ -8,11 +8,12 @@ import * as types from '../mutation-types';
 import { makePost } from './post';
 
 const { baseUrl } = apiConfig;
-const apiEndpoint = makeApi({ axios, baseUrl });
+const api = makeApi({ axios, baseUrl });
 
-const postApiEndpoint = apiEndpoint(`posts/`);
-const getPost = makeGetPost({ api: postApiEndpoint });
-const listPosts = makeListPosts({ api: postApiEndpoint });
+const postApi = api(`posts/`);
+
+const getPost = makeGetPost({ api: postApi });
+const listPosts = makeListPosts({ api: postApi });
 
 export const post = makePost({ getPost, listPosts, types });
 
