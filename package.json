@@ -32,7 +32,7 @@
     "@avalanche/setting-colors": "^4.0.0-alpha.4",
     "@avalanche/setting-spacings": "^4.0.0-alpha.5",
     "@avalanche/utility-width": "^4.0.0-alpha.7",
-    "axios": "^0.16.2",
+    "axios": "^0.17.0",
     "normalize-scss": "^7.0.0",
     "nuxt": "latest",
     "vee-validate": "^2.0.0-rc.19",
@@ -64,7 +64,7 @@
     "stylelint-processor-html": "^1.0.0",
     "vue-server-renderer": "^2.5.2",
     "vue-template-compiler": "^2.5.2",
-    "vue-test-utils": "^1.0.0-beta.2"
+    "vue-test-utils": "^1.0.0-beta.3"
   },
   "ava": {
     "require": [
