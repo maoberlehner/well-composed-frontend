@@ -13,7 +13,7 @@
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:styles": "stylelint --syntax scss '+(assets|components|layouts|pages)/**/*.+(scss|vue)'",
-    "test:unit": "ava test/unit/**/**/**/*.spec.js",
+    "test:unit": "ava 'test/unit/**/*.spec.js'",
     "test": "npm run test:unit"
   },
   "repository": {
