@@ -1,9 +1,6 @@
 const nodeSassMagicImporter = require(`node-sass-magic-importer`);
 
 module.exports = {
-  /**
-   * Headers of the page.
-   */
   head: {
     title: `A well-composed frontend`,
     meta: [
@@ -11,18 +8,9 @@ module.exports = {
       { name: `viewport`, content: `width=device-width, initial-scale=1` },
     ],
   },
-  /**
-   * Customize the progress-bar color.
-   */
   loading: { color: `#00acc1` },
   plugins: [`~/plugins/vee-validate`],
-  /**
-   * Build configuration.
-   */
   build: {
-    /**
-     * Run ESLint on save.
-     */
     extend(config, { isClient }) {
       const vueLoader = config.module.rules.find(rule => rule.loader === `vue-loader`);
 
@@ -47,6 +35,7 @@ module.exports = {
         },
       ];
 
+      // Run ESLint on save.
       if (isClient) {
         config.module.rules.push({
           enforce: `pre`,
