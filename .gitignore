@@ -26,5 +26,6 @@ Thumbs.db
 
 # Folders to ignore
 .nuxt
+coverage
 dist
 node_modules
