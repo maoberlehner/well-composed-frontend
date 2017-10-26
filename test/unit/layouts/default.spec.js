@@ -1,10 +1,11 @@
 import { shallow } from 'vue-test-utils';
-import test from 'ava';
 
-import layoutDefault from '../../../layouts/default.vue';
+import LayoutDefault from '../../../layouts/default.vue';
 
-test(`It should render a \`<div>\`.`, (t) => {
-  const wrapper = shallow(layoutDefault);
+describe(`LayoutDefault`, () => {
+  test(`It should render a \`<div>\`.`, () => {
+    const wrapper = shallow(LayoutDefault);
 
-  t.true(wrapper.is(`div`));
+    expect(wrapper.is(`div`)).toBeTruthy();
+  });
 });

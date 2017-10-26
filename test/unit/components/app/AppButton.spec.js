@@ -1,18 +1,19 @@
 import { shallow } from 'vue-test-utils';
-import test from 'ava';
 
 import AppButton from '../../../../components/app/AppButton.vue';
 
-test(`It should render a \`<button>\`.`, (t) => {
-  const wrapper = shallow(AppButton);
+describe(`AppButton`, () => {
+  test(`It should render a \`<button>\`.`, () => {
+    const wrapper = shallow(AppButton);
 
-  t.true(wrapper.is(`button`));
-});
+    expect(wrapper.is(`button`)).toBeTruthy();
+  });
 
-test(`It should emit an event when clicked.`, (t) => {
-  const wrapper = shallow(AppButton);
+  test(`It should emit an event when clicked.`, () => {
+    const wrapper = shallow(AppButton);
 
-  wrapper.trigger(`click`);
+    wrapper.trigger(`click`);
 
-  t.deepEqual(wrapper.emitted(), { click: [[]] });
+    expect(wrapper.emitted().click).toBeTruthy();
+  });
 });

@@ -1,10 +1,11 @@
 import { shallow } from 'vue-test-utils';
-import test from 'ava';
 
 import AppMessage from '../../../../components/app/AppMessage.vue';
 
-test(`It should render a \`<div>\`.`, (t) => {
-  const wrapper = shallow(AppMessage);
+describe(`AppMessage`, () => {
+  test(`It should render a \`<div>\`.`, () => {
+    const wrapper = shallow(AppMessage);
 
-  t.true(wrapper.is(`div`));
+    expect(wrapper.is(`div`)).toBeTruthy();
+  });
 });

@@ -1,10 +1,11 @@
 import { shallow } from 'vue-test-utils';
-import test from 'ava';
 
-import pageAboutIndex from '../../../../pages/about/index.vue';
+import PageAboutIndex from '../../../../pages/about/index.vue';
 
-test(`It should render a \`<div>\`.`, (t) => {
-  const wrapper = shallow(pageAboutIndex);
+describe(`PageAboutIndex`, () => {
+  test(`It should render a \`<div>\`.`, () => {
+    const wrapper = shallow(PageAboutIndex);
 
-  t.true(wrapper.is(`div`));
+    expect(wrapper.is(`div`)).toBeTruthy();
+  });
 });
