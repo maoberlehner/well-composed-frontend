@@ -25,12 +25,12 @@
         <app-headline :level="3">Load new post</app-headline>
         <app-input
           id="post-id"
-          data-vv-name="Post ID"
           v-model="postId"
-          v-validate="'required|numeric'">
+          @input="$v.postId.$touch()">
           <app-label slot="start" id="post-id">Post ID</app-label>
-          <app-message slot="end" v-show="errors.has('Post ID')" type="error">
-            {{ errors.first('Post ID') }}
+          <app-message slot="end" v-if="$v.postId.$error" type="error">
+            <p v-if="!$v.postId.$required">Field is required.</p>
+            <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
           </app-message>
         </app-input>
         <app-button @click="fetchPost(postId)">Load</app-button>
@@ -42,6 +42,8 @@
 <script>
 /* eslint-disable no-use-before-define */
 import { createNamespacedHelpers } from 'vuex';
+import { validationMixin } from 'vuelidate';
+import { required, numeric } from 'vuelidate/lib/validators';
 
 import AppHeadline from '../components/app/AppHeadline.vue';
 import AppInput from '../components/app/AppInput.vue';
@@ -54,6 +56,16 @@ import PostWidget from '../components/post/PostWidget.vue';
 const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
+  mixins: [validationMixin],
+  components: {
+    AppHeadline,
+    AppInput,
+    AppButton,
+    AppMessage,
+    AppLabel,
+    PostList,
+    PostWidget,
+  },
   data() {
     return {
       postId: 1,
@@ -70,14 +82,11 @@ export default {
       `fetchPost`,
     ]),
   },
-  components: {
-    AppHeadline,
-    AppInput,
-    AppButton,
-    AppMessage,
-    AppLabel,
-    PostList,
-    PostWidget,
+  validations: {
+    postId: {
+      required,
+      numeric,
+    },
   },
   fetch({ store }) {
     return Promise.all([

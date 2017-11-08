@@ -9,7 +9,6 @@ module.exports = {
     ],
   },
   loading: { color: `#00acc1` },
-  plugins: [`~/plugins/vee-validate`],
   build: {
     extend(config, { isClient }) {
       const vueLoader = config.module.rules.find(rule => rule.loader === `vue-loader`);
