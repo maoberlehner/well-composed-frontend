@@ -9,7 +9,7 @@ export default {
       {
         class: {
           'c-app-headline': true,
-          [`c-app-headline--size${size}`]: true,
+          [`c-app-headline--size${size}`]: size,
         },
       },
       this.$slots.default,

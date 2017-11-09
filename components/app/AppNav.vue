@@ -4,7 +4,7 @@
       <li class="c-app-nav__item">
         <router-link
           class="c-app-nav__link"
-          active-class="c-app-nav__link--active"
+          active-class="is-active"
           to="/"
           exact>
           Posts
@@ -13,7 +13,7 @@
       <li class="c-app-nav__item">
         <router-link
           class="c-app-nav__link"
-          active-class="c-app-nav__link--active"
+          active-class="is-active"
           to="/about"
           exact>
           About
