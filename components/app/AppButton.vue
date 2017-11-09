@@ -1,5 +1,5 @@
 <template>
-  <button class="c-button" @click="click">
+  <button class="c-button">
     <slot></slot>
   </button>
 </template>
@@ -7,11 +7,6 @@
 <script>
 export default {
   name: `AppButton`,
-  methods: {
-    click() {
-      this.$emit(`click`);
-    },
-  },
 };
 </script>
 

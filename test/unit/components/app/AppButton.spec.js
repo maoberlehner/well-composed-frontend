@@ -8,12 +8,4 @@ describe(`AppButton`, () => {
 
     expect(wrapper.is(`button`)).toBeTruthy();
   });
-
-  test(`It should emit an event when clicked.`, () => {
-    const wrapper = shallow(AppButton);
-
-    wrapper.trigger(`click`);
-
-    expect(wrapper.emitted().click).toBeTruthy();
-  });
 });
