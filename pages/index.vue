@@ -52,7 +52,7 @@ import AppInput from '../components/app/AppInput.vue';
 import AppButton from '../components/app/AppButton.vue';
 import AppMessage from '../components/app/AppMessage.vue';
 import AppLabel from '../components/app/AppLabel.vue';
-import FormElement from '../components/organisms/form/FormElement.vue';
+import FormElement from '../components/molecules/form/FormElement.vue';
 import PostList from '../components/post/PostList.vue';
 import PostWidget from '../components/post/PostWidget.vue';
 
