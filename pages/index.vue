@@ -24,7 +24,7 @@
 
         <app-headline :level="3">Load new post</app-headline>
         <form-element>
-          <app-label slot="label" id="post-id">Post ID</app-label>
+          <app-label slot="label" for="post-id">Post ID</app-label>
           <app-input
             id="post-id"
             v-model="postId"

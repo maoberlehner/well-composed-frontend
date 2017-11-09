@@ -1,5 +1,5 @@
 <template>
-  <label class="c-form-label" :for="id">
+  <label class="c-form-label">
     <slot></slot>
   </label>
 </template>
@@ -7,10 +7,5 @@
 <script>
 export default {
   name: `AppLabel`,
-  props: {
-    id: {
-      type: String,
-    },
-  },
 };
 </script>
