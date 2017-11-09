@@ -1,13 +1,9 @@
 <template>
-  <div class="c-form-input">
-    <slot name="start"></slot>
-    <input
-      class="c-form-input__input"
-      :id="id"
-      :value="value"
-      @input="$emit('input', $event.target.value)">
-    <slot name="end"></slot>
-  </div>
+  <input
+    class="c-form-input"
+    :id="id"
+    :value="value"
+    @input="$emit('input', $event.target.value)">
 </template>
 
 <script>

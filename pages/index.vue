@@ -23,16 +23,18 @@
         <post-widget :post="currentPost"></post-widget>
 
         <app-headline :level="3">Load new post</app-headline>
-        <app-input
-          id="post-id"
-          v-model="postId"
-          @input="$v.postId.$touch()">
-          <app-label slot="start" id="post-id">Post ID</app-label>
-          <app-message slot="end" v-if="$v.postId.$error" type="error">
+        <form-element>
+          <app-label slot="label" id="post-id">Post ID</app-label>
+          <app-input
+            id="post-id"
+            v-model="postId"
+            @input="$v.postId.$touch()">
+          </app-input>
+          <app-message slot="message" v-if="$v.postId.$error" type="error">
             <p v-if="!$v.postId.$required">Field is required.</p>
             <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
           </app-message>
-        </app-input>
+        </form-element>
         <app-button @click="fetchPost(postId)">Load</app-button>
       </div>
     </div>
@@ -50,6 +52,7 @@ import AppInput from '../components/app/AppInput.vue';
 import AppButton from '../components/app/AppButton.vue';
 import AppMessage from '../components/app/AppMessage.vue';
 import AppLabel from '../components/app/AppLabel.vue';
+import FormElement from '../components/organisms/form/FormElement.vue';
 import PostList from '../components/post/PostList.vue';
 import PostWidget from '../components/post/PostWidget.vue';
 
@@ -63,6 +66,7 @@ export default {
     AppButton,
     AppMessage,
     AppLabel,
+    FormElement,
     PostList,
     PostWidget,
   },
