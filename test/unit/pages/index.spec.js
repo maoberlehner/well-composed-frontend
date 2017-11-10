@@ -32,4 +32,15 @@ describe(`PageIndex`, () => {
 
     expect(wrapper.is(`div`)).toBe(true);
   });
+
+  test(`It should fetch data from the store.`, () => {
+    const wrapper = shallow(PageIndex, { store, localVue });
+    const mockDispatch = jest.fn();
+    const mockStore = { dispatch: mockDispatch };
+
+    wrapper.vm.$options.fetch({ store: mockStore });
+
+    expect(mockDispatch).toBeCalledWith(`post/fetchPosts`);
+    expect(mockDispatch).toBeCalledWith(`post/fetchPost`, 1);
+  });
 });
