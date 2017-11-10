@@ -6,7 +6,7 @@ describe(`AppInput`, () => {
   test(`It should render an \`<input>\`.`, () => {
     const wrapper = shallow(AppInput);
 
-    expect(wrapper.is(`input`)).toBeTruthy();
+    expect(wrapper.is(`input`)).toBe(true);
   });
 
   test(`It should emit an event when the input is changed.`, () => {

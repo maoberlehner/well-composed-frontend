@@ -6,6 +6,6 @@ describe(`PageAboutIndex`, () => {
   test(`It should render a \`<div>\`.`, () => {
     const wrapper = shallow(PageAboutIndex);
 
-    expect(wrapper.is(`div`)).toBeTruthy();
+    expect(wrapper.is(`div`)).toBe(true);
   });
 });

@@ -6,6 +6,6 @@ describe(`AppButton`, () => {
   test(`It should render a \`<button>\`.`, () => {
     const wrapper = shallow(AppButton);
 
-    expect(wrapper.is(`button`)).toBeTruthy();
+    expect(wrapper.is(`button`)).toBe(true);
   });
 });

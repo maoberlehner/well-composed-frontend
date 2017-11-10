@@ -6,6 +6,6 @@ describe(`PostList`, () => {
   test(`It should render an \`<ul>\`.`, () => {
     const wrapper = shallow(PostList);
 
-    expect(wrapper.is(`ul`)).toBeTruthy();
+    expect(wrapper.is(`ul`)).toBe(true);
   });
 });

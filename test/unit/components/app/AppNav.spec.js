@@ -6,6 +6,6 @@ describe(`AppNav`, () => {
   test(`It should render a \`<nav>\`.`, () => {
     const wrapper = shallow(AppNav);
 
-    expect(wrapper.is(`nav`)).toBeTruthy();
+    expect(wrapper.is(`nav`)).toBe(true);
   });
 });

@@ -8,7 +8,7 @@ describe(`AppHeadline`, () => {
       propsData: { level: 1 },
     });
 
-    expect(wrapper.is(`h1`)).toBeTruthy();
+    expect(wrapper.is(`h1`)).toBe(true);
   });
 
   test(`It should have a size class which matches the level if no size is given.`, () => {
@@ -16,7 +16,7 @@ describe(`AppHeadline`, () => {
       propsData: { level: 3 },
     });
 
-    expect(wrapper.hasClass(`c-app-headline--size3`)).toBeTruthy();
+    expect(wrapper.hasClass(`c-app-headline--size3`)).toBe(true);
   });
 
   test(`It should have a size class according to the given size.`, () => {
@@ -27,6 +27,6 @@ describe(`AppHeadline`, () => {
       },
     });
 
-    expect(wrapper.hasClass(`c-app-headline--size3`)).toBeTruthy();
+    expect(wrapper.hasClass(`c-app-headline--size3`)).toBe(true);
   });
 });

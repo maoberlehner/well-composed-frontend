@@ -6,6 +6,6 @@ describe(`AppLabel`, () => {
   test(`It should render a \`<label>\`.`, () => {
     const wrapper = shallow(AppLabel);
 
-    expect(wrapper.is(`label`)).toBeTruthy();
+    expect(wrapper.is(`label`)).toBe(true);
   });
 });

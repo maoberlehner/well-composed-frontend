@@ -30,6 +30,6 @@ describe(`PageIndex`, () => {
   test(`It should render a \`<div>\`.`, () => {
     const wrapper = shallow(PageIndex, { store, localVue });
 
-    expect(wrapper.is(`div`)).toBeTruthy();
+    expect(wrapper.is(`div`)).toBe(true);
   });
 });

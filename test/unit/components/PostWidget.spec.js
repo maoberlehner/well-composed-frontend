@@ -8,6 +8,6 @@ describe(`PostWidget`, () => {
       propsData: { post: { title: `Title` } },
     });
 
-    expect(wrapper.is(`div`)).toBeTruthy();
+    expect(wrapper.is(`div`)).toBe(true);
   });
 });
