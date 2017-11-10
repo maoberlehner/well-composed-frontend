@@ -29,12 +29,10 @@ export default {
 @import '../../assets/scss/settings/generic';
 
 .c-form-input {
-  &__input {
-    display: block;
-    padding: setting-spacing(xs);
-    width: 100%;
-    border: none;
-    box-shadow: inset 0 0 1px setting-color(c, gray);
-  }
+  display: block;
+  padding: setting-spacing(xs);
+  width: 100%;
+  border: none;
+  box-shadow: inset 0 0 1px setting-color(c, gray);
 }
 </style>
