@@ -43,6 +43,7 @@
     "@avalanche/eslint-config": "^1.0.2",
     "@avalanche/stylelint-config": "^0.1.2",
     "babel-eslint": "^8.0.2",
+    "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.10.0",
@@ -52,13 +53,12 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^3.13.1",
     "jest": "^21.2.1",
-    "jest-babel": "^1.0.1",
-    "jest-vue": "^0.8.2",
     "node-sass": "^4.6.0",
     "node-sass-magic-importer": "^5.0.0-alpha.17",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.2.0",
     "stylelint-processor-html": "^1.0.0",
+    "vue-jest": "^1.0.2",
     "vue-server-renderer": "^2.5.3",
     "vue-template-compiler": "^2.5.3",
     "vue-test-utils": "^1.0.0-beta.4"
@@ -70,8 +70,8 @@
       "vue"
     ],
     "transform": {
-      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "babel-jest"
     },
     "mapCoverage": true
   }
