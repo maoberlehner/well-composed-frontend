@@ -57,7 +57,6 @@
     "node-sass": "^4.6.0",
     "node-sass-magic-importer": "^5.0.0-alpha.17",
     "sass-loader": "^6.0.6",
-    "sinon": "^4.1.2",
     "stylelint": "^8.2.0",
     "stylelint-processor-html": "^1.0.0",
     "vue-server-renderer": "^2.5.3",

@@ -1,5 +1,4 @@
 import Vuex from 'vuex';
-import sinon from 'sinon';
 import { createLocalVue, shallow } from 'vue-test-utils';
 
 import PageIndex from '../../../pages/index.vue';
@@ -16,7 +15,7 @@ beforeEach(() => {
     post: {
       namespaced: true,
       actions: {
-        fetchPost: sinon.stub(),
+        fetchPost: jest.fn(),
       },
     },
   };
