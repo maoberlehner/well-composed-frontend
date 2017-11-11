@@ -1,10 +1,10 @@
 <template>
   <div class="c-form-element">
-    <slot name="label"></slot>
+    <slot name="start"></slot>
     <div class="c-form-element__field">
       <slot></slot>
     </div>
-    <slot name="message"></slot>
+    <slot name="end"></slot>
   </div>
 </template>
 

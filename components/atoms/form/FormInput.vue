@@ -1,32 +1,19 @@
 <template>
   <input
     class="c-form-input"
-    :id="id"
-    :value="value"
     @input="$emit('input', $event.target.value)">
 </template>
 
 <script>
 export default {
-  name: `AppInput`,
-  props: {
-    id: {
-      type: String,
-    },
-    label: {
-      type: String,
-    },
-    value: {
-      type: [String, Number],
-    },
-  },
+  name: `FormInput`,
 };
 </script>
 
 <style lang="scss" scoped>
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../../assets/scss/settings/generic';
+@import '../../../assets/scss/settings/generic';
 
 .c-form-input {
   display: block;

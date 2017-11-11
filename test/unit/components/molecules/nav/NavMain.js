@@ -1,10 +1,10 @@
 import { shallow } from 'vue-test-utils';
 
-import AppNav from '../../../../components/app/AppNav.vue';
+import NavMain from '../../../../../components/molecules/nav/NavMain.vue';
 
-describe(`AppNav`, () => {
+describe(`NavMain`, () => {
   test(`It should render a \`<nav>\`.`, () => {
-    const wrapper = shallow(AppNav);
+    const wrapper = shallow(NavMain);
 
     expect(wrapper.is(`nav`)).toBe(true);
   });

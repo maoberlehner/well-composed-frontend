@@ -2,7 +2,7 @@
   <div class="c-layout-default">
     <div class="o-grid o-grid--collapsed c-layout-default__grid">
       <div class="o-grid__item u-width-12/12 u-width-3/12@m">
-        <app-nav class="c-layout-default__sidebar"></app-nav>
+        <nav-main class="c-layout-default__sidebar"></nav-main>
       </div>
       <main class="o-grid__item u-width-12/12 u-width-9/12@m">
         <nuxt class="c-layout-default__main"></nuxt>
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import AppNav from '../components/app/AppNav.vue';
+import NavMain from '../components/molecules/nav/NavMain.vue';
 
 export default {
   components: {
-    AppNav,
+    NavMain,
   },
 };
 </script>

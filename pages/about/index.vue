@@ -1,16 +1,16 @@
 <template>
   <div class="o-vertical-spacing o-vertical-spacing--l">
-    <app-headline :level="1">About</app-headline>
+    <text-headline :level="1">About</text-headline>
     <p>Lorem Ipsum dolor sit amet.</p>
   </div>
 </template>
 
 <script>
-import AppHeadline from '../../components/app/AppHeadline.vue';
+import TextHeadline from '../../components/atoms/text/TextHeadline.vue';
 
 export default {
   components: {
-    AppHeadline,
+    TextHeadline,
   },
 };
 </script>

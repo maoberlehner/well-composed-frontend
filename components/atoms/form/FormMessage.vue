@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: `AppMessage`,
+  name: `FormMessage`,
   props: {
     type: {
       type: String,

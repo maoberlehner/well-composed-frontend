@@ -1,19 +1,18 @@
 import { shallow } from 'vue-test-utils';
 
-import AppInput from '../../../../components/app/AppInput.vue';
+import FormInput from '../../../../../components/atoms/form/FormInput.vue';
 
-describe(`AppInput`, () => {
+describe(`FormInput`, () => {
   test(`It should render an \`<input>\`.`, () => {
-    const wrapper = shallow(AppInput);
+    const wrapper = shallow(FormInput);
 
     expect(wrapper.is(`input`)).toBe(true);
   });
 
   test(`It should emit an event when the input is changed.`, () => {
-    const wrapper = shallow(AppInput, {
-      propsData: { value: `foo` },
-    });
+    const wrapper = shallow(FormInput);
 
+    wrapper.vm.$el.value = `foo`;
     wrapper.trigger(`input`);
 
     expect(wrapper.emitted()).toEqual({ input: [[`foo`]] });

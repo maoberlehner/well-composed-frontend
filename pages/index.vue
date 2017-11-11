@@ -1,6 +1,6 @@
 <template>
   <div class="o-vertical-spacing o-vertical-spacing--l">
-    <app-headline :level="1">Posts</app-headline>
+    <text-headline :level="1">Posts</text-headline>
     <div class="o-grid">
       <div
         class="
@@ -9,8 +9,15 @@
           o-vertical-spacing--l
           u-width-12/12
           u-width-6/12@m">
-        <app-headline :level="2">Post list</app-headline>
-        <post-list :posts="posts"></post-list>
+        <text-headline :level="2">Post list</text-headline>
+        <list-media :items="posts">
+          <block-media-post
+            slot="item"
+            slot-scope="post"
+            :title="post.title"
+            :body="post.body">
+          </block-media-post>
+        </list-media>
       </div>
       <div
         class="
@@ -19,21 +26,24 @@
           o-vertical-spacing--l
           u-width-12/12
           u-width-6/12@m">
-        <app-headline :level="2">Current post</app-headline>
-        <post-widget :post="currentPost"></post-widget>
+        <text-headline :level="2">Current post</text-headline>
+        <block-media-post
+          :title="currentPost.title"
+          :body="currentPost.body">
+        </block-media-post>
 
-        <app-headline :level="3">Load new post</app-headline>
+        <text-headline :level="3">Load new post</text-headline>
         <form-element>
-          <app-label slot="label" for="post-id">Post ID</app-label>
-          <app-input
+          <form-label slot="start" for="post-id">Post ID</form-label>
+          <form-input
             id="post-id"
             v-model="postId"
             @input="$v.postId.$touch()">
-          </app-input>
-          <app-message slot="message" v-if="$v.postId.$error" type="error">
+          </form-input>
+          <form-message slot="end" v-if="$v.postId.$error" type="error">
             <p v-if="!$v.postId.$required">Field is required.</p>
             <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
-          </app-message>
+          </form-message>
         </form-element>
         <app-button @click.native="fetchPost(postId)">Load</app-button>
       </div>
@@ -47,28 +57,28 @@ import { createNamespacedHelpers } from 'vuex';
 import { validationMixin } from 'vuelidate';
 import { required, numeric } from 'vuelidate/lib/validators';
 
-import AppHeadline from '../components/app/AppHeadline.vue';
-import AppInput from '../components/app/AppInput.vue';
-import AppButton from '../components/app/AppButton.vue';
-import AppMessage from '../components/app/AppMessage.vue';
-import AppLabel from '../components/app/AppLabel.vue';
+import ListMedia from '../components/organisms/list/ListMedia.vue';
+import BlockMediaPost from '../components/molecules/block/BlockMediaPost.vue';
 import FormElement from '../components/molecules/form/FormElement.vue';
-import PostList from '../components/post/PostList.vue';
-import PostWidget from '../components/post/PostWidget.vue';
+import AppButton from '../components/atoms/app/AppButton.vue';
+import FormInput from '../components/atoms/form/FormInput.vue';
+import FormMessage from '../components/atoms/form/FormMessage.vue';
+import FormLabel from '../components/atoms/form/FormLabel.vue';
+import TextHeadline from '../components/atoms/text/TextHeadline.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
   mixins: [validationMixin],
   components: {
-    AppHeadline,
-    AppInput,
-    AppButton,
-    AppMessage,
-    AppLabel,
+    ListMedia,
+    BlockMediaPost,
     FormElement,
-    PostList,
-    PostWidget,
+    AppButton,
+    FormInput,
+    FormMessage,
+    FormLabel,
+    TextHeadline,
   },
   data() {
     return {

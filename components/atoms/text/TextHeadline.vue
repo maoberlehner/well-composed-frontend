@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: `AppHeadline`,
+  name: `TextHeadline`,
   render(createElement) {
     const size = this.size || this.level;
 
@@ -8,8 +8,8 @@ export default {
       `h${this.level}`,
       {
         class: {
-          'c-app-headline': true,
-          [`c-app-headline--size${size}`]: size,
+          'c-text-headline': true,
+          [`c-text-headline--size${size}`]: size,
         },
       },
       this.$slots.default,
@@ -28,10 +28,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@avalanche/setting-font-sizes';
 @import '~@avalanche/setting-spacings';
-@import '../../assets/scss/settings/generic';
+@import '../../../assets/scss/settings/generic';
 
-.c-app-headline {
+.c-text-headline {
   &--size1 {
     font-size: setting-font-size(xxxl);
   }
@@ -40,9 +41,8 @@ export default {
     font-size: setting-font-size(xxl);
   }
 
-  &--underlined {
-    padding-bottom: setting-spacing(xs, true);
-    border-bottom: 1px solid setting-color(a, gray);
+  &--size3 {
+    font-size: setting-font-size(xl);
   }
 }
 </style>

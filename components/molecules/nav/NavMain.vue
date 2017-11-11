@@ -1,18 +1,18 @@
 <template>
-  <nav class="c-app-nav">
-    <ul class="c-app-nav__list">
-      <li class="c-app-nav__item">
+  <nav class="c-nav-main">
+    <ul class="c-nav-main__list">
+      <li class="c-nav-main__item">
         <router-link
-          class="c-app-nav__link"
+          class="c-nav-main__link"
           active-class="is-active"
           to="/"
           exact>
           Posts
         </router-link>
       </li>
-      <li class="c-app-nav__item">
+      <li class="c-nav-main__item">
         <router-link
-          class="c-app-nav__link"
+          class="c-nav-main__link"
           active-class="is-active"
           to="/about"
           exact>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: `AppNav`,
+  name: `NavMain`,
 };
 </script>
 
@@ -33,9 +33,9 @@ export default {
 @import '~@avalanche/setting-breakpoints';
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../../assets/scss/settings/generic';
+@import '../../../assets/scss/settings/generic';
 
-.c-app-nav {
+.c-nav-main {
   &__list {
     padding-left: 0;
     list-style-type: none;

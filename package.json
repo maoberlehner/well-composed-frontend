@@ -30,6 +30,7 @@
     "@avalanche/object-vertical-spacing": "^4.0.0-alpha.4",
     "@avalanche/setting-breakpoints": "^4.0.0-alpha.4",
     "@avalanche/setting-colors": "^4.0.0-alpha.4",
+    "@avalanche/setting-font-sizes": "^4.0.0-alpha.4",
     "@avalanche/setting-spacings": "^4.0.0-alpha.5",
     "@avalanche/utility-width": "^4.0.0-alpha.7",
     "axios": "^0.17.0",

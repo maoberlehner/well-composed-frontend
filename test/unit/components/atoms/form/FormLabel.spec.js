@@ -1,10 +1,10 @@
 import { shallow } from 'vue-test-utils';
 
-import AppLabel from '../../../../components/app/AppLabel.vue';
+import FormLabel from '../../../../../components/atoms/form/FormLabel.vue';
 
-describe(`AppLabel`, () => {
+describe(`FormLabel`, () => {
   test(`It should render a \`<label>\`.`, () => {
-    const wrapper = shallow(AppLabel);
+    const wrapper = shallow(FormLabel);
 
     expect(wrapper.is(`label`)).toBe(true);
   });
