@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import BlockMedia from '../../../../../components/molecules/block/BlockMedia.vue';
+import BlockMedia from './BlockMedia.vue';
 
 describe(`BlockMedia`, () => {
   test(`It should render a \`<div>\`.`, () => {

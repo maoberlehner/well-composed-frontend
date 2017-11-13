@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import FormInput from '../../../../../components/atoms/form/FormInput.vue';
+import FormInput from './FormInput.vue';
 
 describe(`FormInput`, () => {
   test(`It should render an \`<input>\`.`, () => {

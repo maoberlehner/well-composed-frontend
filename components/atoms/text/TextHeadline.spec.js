@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import TextHeadline from '../../../../../components/atoms/text/TextHeadline.vue';
+import TextHeadline from './TextHeadline.vue';
 
 describe(`TextHeadline`, () => {
   test(`It should render a \`<hN>\` tag of the given level.`, () => {

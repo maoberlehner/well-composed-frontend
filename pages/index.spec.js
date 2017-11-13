@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import { createLocalVue, shallow } from 'vue-test-utils';
 
-import PageIndex from '../../../pages/index.vue';
+import PageIndex from './index.vue';
 
 const localVue = createLocalVue();
 

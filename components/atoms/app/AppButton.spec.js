@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import AppButton from '../../../../../components/atoms/app/AppButton.vue';
+import AppButton from './AppButton.vue';
 
 describe(`AppButton`, () => {
   test(`It should render a \`<button>\`.`, () => {

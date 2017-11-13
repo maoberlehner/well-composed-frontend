@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import ListMedia from '../../../../../components/organisms/list/ListMedia.vue';
+import ListMedia from './ListMedia.vue';
 
 describe(`ListMedia`, () => {
   test(`It should render an \`<ul>\`.`, () => {

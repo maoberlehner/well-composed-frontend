@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import PageAboutIndex from '../../../../pages/about/index.vue';
+import PageAboutIndex from './index.vue';
 
 describe(`PageAboutIndex`, () => {
   test(`It should render a \`<div>\`.`, () => {

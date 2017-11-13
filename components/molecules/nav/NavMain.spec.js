@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils';
 
-import NavMain from '../../../../../components/molecules/nav/NavMain.vue';
+import NavMain from './NavMain.vue';
 
 describe(`NavMain`, () => {
   test(`It should render a \`<nav>\`.`, () => {
