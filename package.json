@@ -43,6 +43,7 @@
   "devDependencies": {
     "@avalanche/eslint-config": "^1.0.2",
     "@avalanche/stylelint-config": "^0.1.2",
+    "@nuxtjs/pwa": "^1.0.2",
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",

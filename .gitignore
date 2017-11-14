@@ -29,3 +29,7 @@ Thumbs.db
 coverage
 dist
 node_modules
+
+# Files to ignore
+sw.*
+workbox-*
