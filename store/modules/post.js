@@ -38,7 +38,7 @@ export function makePost({ getPost, listPosts, types }) {
 
   const state = {
     posts: Array,
-    current: String,
+    current: Object,
   };
 
   return {
