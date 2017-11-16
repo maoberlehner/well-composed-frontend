@@ -2,7 +2,7 @@ export function makePost({ getPost, listPosts, types }) {
   const actions = {
     fetchPosts({ commit }) {
       return listPosts()
-        .then(response => commit(types.SET_POSTS, response.data.slice(0).slice(-20)))
+        .then(response => commit(types.SET_POSTS, response.data.slice(-20)))
         .catch((error) => {
           throw new Error(error);
         });
