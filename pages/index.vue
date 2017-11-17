@@ -3,12 +3,13 @@
     <text-headline :level="1">Posts</text-headline>
     <div class="o-grid">
       <div
-        class="
-          o-grid__item
-          o-vertical-spacing
-          o-vertical-spacing--l
-          u-width-12/12
-          u-width-6/12@m">
+        :class="{
+          'o-grid__item': true,
+          'o-vertical-spacing': true,
+          'o-vertical-spacing--l': true,
+          'u-width-12/12': true,
+          'u-width-6/12@m': true,
+        }">
         <text-headline :level="2">Post list</text-headline>
         <list-media :items="posts">
           <block-media-post
@@ -20,12 +21,13 @@
         </list-media>
       </div>
       <div
-        class="
-          o-grid__item
-          o-vertical-spacing
-          o-vertical-spacing--l
-          u-width-12/12
-          u-width-6/12@m">
+        :class="{
+          'o-grid__item': true,
+          'o-vertical-spacing': true,
+          'o-vertical-spacing--l': true,
+          'u-width-12/12': true,
+          'u-width-6/12@m': true,
+        }">
         <text-headline :level="2">Current post</text-headline>
         <block-media-post
           :title="currentPost.title"
