@@ -28,12 +28,8 @@ export function makePost({ getPost, listPosts, types }) {
   };
 
   const getters = {
-    allPosts(state) {
-      return state.posts;
-    },
-    currentPost(state) {
-      return state.current;
-    },
+    allPosts: state => state.posts,
+    currentPost: state => state.current,
   };
 
   const state = {
