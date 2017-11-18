@@ -11,7 +11,7 @@
           'u-width-6/12@m': true,
         }">
         <text-headline :level="2">Post list</text-headline>
-        <list-media :items="posts">
+        <list-media :items="posts" data-qa="post list">
           <block-media-post
             slot="item"
             slot-scope="post"

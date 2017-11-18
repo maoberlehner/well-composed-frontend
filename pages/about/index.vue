@@ -1,5 +1,5 @@
 <template>
-  <div class="o-vertical-spacing o-vertical-spacing--l">
+  <div class="o-vertical-spacing o-vertical-spacing--l" data-qa="main content">
     <text-headline :level="1">About</text-headline>
     <p>Lorem Ipsum dolor sit amet.</p>
   </div>
