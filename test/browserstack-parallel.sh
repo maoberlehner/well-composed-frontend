@@ -12,5 +12,5 @@ do
     kill $(lsof -t -i:45691)
 
     # Run tests sequentially.
-    node test/local.runner.js -c test/conf/browserstack.conf.js -e ${i} $1 $2
+    node test/local.runner.js -c test/conf/browserstack.conf.js -e ${i} $*
 done
