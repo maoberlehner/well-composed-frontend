@@ -31,6 +31,7 @@ module.exports = {
     start_process: false,
   },
   test_workers: runInParallelMode,
+  detailed_output: false,
   test_settings: {
     default: {
       selenium_port: 9515,
