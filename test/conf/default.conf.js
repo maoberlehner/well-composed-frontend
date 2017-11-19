@@ -1,15 +1,10 @@
 const nightwatchCucumber = require(`nightwatch-cucumber`);
 
-// Enable development mode for easier debugging
-// when working with a TDD appraoch. Running tests
-// in development mode is not as fast.
-const devMode = false;
-
-const runInHeadlessMode = !devMode;
+const runInHeadlessMode = process.argv.includes(`--headless`);
 // Warning! Although enabling parallelization makes
 // tests faster, it sometimes leads to false positive
 // breaking tests. Use with caution.
-const runInParallelMode = !devMode;
+const runInParallelMode = process.argv.includes(`--parallel`);
 
 const chromeArgs = [`artifacts-dir=./test/reports/screenshots`];
 if (runInHeadlessMode) chromeArgs.push(`--headless`);

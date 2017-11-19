@@ -15,7 +15,7 @@
     "lint:gherkin": "gherkin-lint test/features",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:gherkin",
     "test:unit": "jest --coverage",
-    "test:acceptance": "nightwatch -c test/conf/default.conf.js --suiteRetries 2",
+    "test:acceptance": "nightwatch -c test/conf/default.conf.js --suiteRetries 2 --headless --parallel",
     "test:acceptance-browserstack": "sh test/browserstack-parallel.sh",
     "test:acceptance-create-report": "node test/create-report.js",
     "test": "npm run test:unit && npm run test:acceptance"
