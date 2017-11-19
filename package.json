@@ -16,6 +16,7 @@
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:gherkin",
     "test:unit": "jest --coverage",
     "test:acceptance": "nightwatch -c test/conf/default.conf.js --suiteRetries 2 --headless --parallel",
+    "test:acceptance-watch": "sh test/watch-mode.sh",
     "test:acceptance-browserstack": "sh test/browserstack-parallel.sh",
     "test:acceptance-create-report": "node test/create-report.js",
     "test": "npm run test:unit && npm run test:acceptance"
@@ -53,6 +54,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "browserstack-local": "^1.3.0",
+    "chokidar-cli": "^1.2.0",
     "chromedriver": "^2.33.2",
     "cucumber": "^3.1.0",
     "cucumber-html-reporter": "^3.0.4",
