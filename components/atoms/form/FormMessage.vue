@@ -3,7 +3,8 @@
     class="c-form-message"
     :class="{
       [`c-form-message--${type}`]: type,
-    }">
+    }"
+  >
     <slot></slot>
   </div>
 </template>

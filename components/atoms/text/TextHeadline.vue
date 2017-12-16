@@ -1,6 +1,15 @@
 <script>
 export default {
   name: `TextHeadline`,
+  props: {
+    level: {
+      type: Number,
+      required: true,
+    },
+    size: {
+      type: Number,
+    },
+  },
   render(createElement) {
     const size = this.size || this.level;
 
@@ -14,15 +23,6 @@ export default {
       },
       this.$slots.default,
     );
-  },
-  props: {
-    level: {
-      type: Number,
-      required: true,
-    },
-    size: {
-      type: Number,
-    },
   },
 };
 </script>

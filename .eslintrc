@@ -21,6 +21,16 @@
         "max": 1,
         "allowFirstLine": false
       }
-    }]
+    }],
+    "vue/html-self-closing": [2, {
+      "html": {
+        "void": "never",
+        "normal": "never",
+        "component": "never"
+      },
+      "svg": "never",
+      "math": "never"
+    }],
+    "vue/require-default-prop": 0
   }
 }

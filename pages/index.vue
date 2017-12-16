@@ -9,7 +9,8 @@
           'o-vertical-spacing--l': true,
           'u-width-12/12': true,
           'u-width-6/12@m': true,
-        }">
+        }"
+      >
         <text-headline :level="2">Post list</text-headline>
         <list-media :items="posts" data-qa="post list">
           <block-media-post
@@ -27,7 +28,8 @@
           'o-vertical-spacing--l': true,
           'u-width-12/12': true,
           'u-width-6/12@m': true,
-        }">
+        }"
+      >
         <text-headline :level="2">Current post</text-headline>
         <block-media-post
           :title="currentPost.title"
@@ -71,7 +73,6 @@ import TextHeadline from '../components/atoms/text/TextHeadline.vue';
 const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
-  mixins: [validationMixin],
   components: {
     ListMedia,
     BlockMediaPost,
@@ -82,6 +83,7 @@ export default {
     FormLabel,
     TextHeadline,
   },
+  mixins: [validationMixin],
   data() {
     return {
       postId: 1,
