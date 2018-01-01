@@ -52,7 +52,6 @@
     "babel-eslint": "^8.1.2",
     "babel-jest": "^22.0.4",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
     "browserstack-local": "^1.3.0",
     "chokidar-cli": "^1.2.0",
     "chromedriver": "^2.34.0",
@@ -77,6 +76,9 @@
     "vue-template-compiler": "^2.5.13",
     "vue-test-utils": "^1.0.0-beta.9"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "js",
