@@ -62,8 +62,6 @@
     "eslint": "^4.14.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0-beta.2",
     "gherkin-lint": "^2.6.0",
     "jest": "^22.0.4",
