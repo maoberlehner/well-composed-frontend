@@ -16,7 +16,7 @@ describe(`TextHeadline`, () => {
       propsData: { level: 3 },
     });
 
-    expect(wrapper.hasClass(`c-text-headline--size3`)).toBe(true);
+    expect(wrapper.classes()).toContain(`c-text-headline--size3`);
   });
 
   test(`It should have a size class according to the given size.`, () => {
@@ -27,6 +27,6 @@ describe(`TextHeadline`, () => {
       },
     });
 
-    expect(wrapper.hasClass(`c-text-headline--size3`)).toBe(true);
+    expect(wrapper.classes()).toContain(`c-text-headline--size3`);
   });
 });
