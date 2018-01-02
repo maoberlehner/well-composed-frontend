@@ -16,9 +16,6 @@ The combination of webpack and node-sass-magic-importer makes it possible to mod
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
-## Known issues
-Because of the way how [vue-loader](https://github.com/vuejs/vue-loader) handles options, it is currently not possible to specify a custom importer function like node-sass-magic-importer in the [sass-loader](https://github.com/webpack-contrib/sass-loader) options. See https://github.com/vuejs/vue-loader/issues/673 to track the current status of this issue.
-
 ## About
 ### Author
 Markus Oberlehner  

@@ -1,4 +1,5 @@
 const nodeSassMagicImporter = require(`node-sass-magic-importer`);
+const VueLoaderOptionsPlugin = require(`vue-loader-options-plugin`);
 
 module.exports = {
   head: {
@@ -11,28 +12,16 @@ module.exports = {
   loading: { color: `#00acc1` },
   build: {
     extend(config, { isClient }) {
-      const vueLoader = config.module.rules.find(rule => rule.loader === `vue-loader`);
-
-      vueLoader.options.loaders.scss = [
-        { loader: `vue-style-loader`, options: { sourceMap: true } },
-        {
-          loader: `css-loader`,
-          options: {
-            minimize: true,
-            importLoaders: 1,
-            sourceMap: true,
-          },
-        },
-        {
-          loader: `sass-loader`,
-          options: {
-            // This does not work because of:
-            // https://github.com/vuejs/vue-loader/issues/673
+      // Override sass-loader options with the VueLoaderOptionsPlugin
+      // until it is possible to provide functions as options in vue-loader.
+      // See: https://github.com/vuejs/vue-loader/issues/673
+      if (process.env.NODE_ENV !== `development`) {
+        config.plugins.push(new VueLoaderOptionsPlugin({
+          sass: {
             importer: nodeSassMagicImporter(),
-            sourceMap: true,
           },
-        },
-      ];
+        }));
+      }
 
       // Run ESLint on save.
       if (isClient) {
