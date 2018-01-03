@@ -56,7 +56,6 @@
 </template>
 
 <script>
-/* eslint-disable no-use-before-define */
 import { createNamespacedHelpers } from 'vuex';
 import { validationMixin } from 'vuelidate';
 import { required, numeric } from 'vuelidate/lib/validators';
@@ -113,7 +112,6 @@ export default {
     ]);
   },
 };
-/* eslint-enable */
 </script>
 
 <style lang="scss" scoped>
