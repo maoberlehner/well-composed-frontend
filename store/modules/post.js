@@ -1,41 +1,46 @@
-export function makePost({ getPost, listPosts, types }) {
-  const actions = {
+import { query } from '../../utils/graphql';
+
+import {
+  SET_POST,
+  SET_POSTS,
+} from '../mutation-types';
+
+export default {
+  namespaced: true,
+  actions: {
     fetchPosts({ commit }) {
-      return listPosts()
-        .then(response => commit(types.SET_POSTS, response.data.slice(-20)));
+      return query(`
+        query {
+          posts {
+            title
+            body
+          }
+        }
+      `).then(response => commit(SET_POSTS, response.data.posts));
     },
     fetchPost({ commit }, id) {
-      return getPost(id)
-        .then(response => commit(types.SET_POST, response.data));
+      return query(`
+        query {
+          post(id: ${id}) {
+            title
+            body
+          }
+        }
+      `).then(response => commit(SET_POST, response.data.post));
     },
-  };
-
-  const mutations = {
-    [types.SET_POSTS](state, posts) {
+  },
+  mutations: {
+    [SET_POSTS](state, posts) {
       // eslint-disable-next-line no-param-reassign
       state.posts = posts;
     },
-    [types.SET_POST](state, post) {
+    [SET_POST](state, post) {
       // eslint-disable-next-line no-param-reassign
       state.current = post;
     },
-  };
-
-  const getters = {
-    allPosts: state => state.posts,
-    currentPost: state => state.current,
-  };
-
-  const state = {
+  },
+  state: {
     posts: Array,
     current: Object,
-  };
-
-  return {
-    namespaced: true,
-    actions,
-    mutations,
-    getters,
-    state,
-  };
-}
+  },
+};
