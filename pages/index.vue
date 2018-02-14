@@ -1,127 +1,112 @@
 <template>
-  <div class="o-vertical-spacing o-vertical-spacing--l">
-    <text-headline :level="1">Posts</text-headline>
-    <div class="o-grid">
-      <div
-        :class="{
-          'o-grid__item': true,
-          'o-vertical-spacing': true,
-          'o-vertical-spacing--l': true,
-          'u-width-12/12': true,
-          'u-width-6/12@m': true,
-        }"
-      >
-        <text-headline :level="2">Post list</text-headline>
-        <list-media :items="posts" data-qa="post list">
-          <block-media-post
-            slot="item"
-            slot-scope="post"
-            :title="post.title"
-            :body="post.body">
-          </block-media-post>
-        </list-media>
-      </div>
-      <div
-        :class="{
-          'o-grid__item': true,
-          'o-vertical-spacing': true,
-          'o-vertical-spacing--l': true,
-          'u-width-12/12': true,
-          'u-width-6/12@m': true,
-        }"
-      >
-        <text-headline :level="2">Current post</text-headline>
-        <block-media-post
-          :title="currentPost.title"
-          :body="currentPost.body">
-        </block-media-post>
+  <div :class="$options.name">
+    <h1>New Customer</h1>
 
-        <text-headline :level="3">Load new post</text-headline>
-        <form-element>
-          <form-label slot="start" for="post-id">Post ID</form-label>
-          <form-input
-            id="post-id"
-            v-model="postId"
-            @input="$v.postId.$touch()">
-          </form-input>
-          <form-message slot="end" v-if="$v.postId.$error" type="error">
-            <p v-if="!$v.postId.$required">Field is required.</p>
-            <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
-          </form-message>
-        </form-element>
-        <app-button @click.native="fetchPost(postId)">Load</app-button>
+    <p class="success" v-if="success">
+      SUCCESS!
+    </p>
+    <p class="error" v-if="error">
+      ERROR: {{ error }}
+    </p>
+
+    <template v-if="!success">
+      <div class="form-sections">
+        <section class="form-section">
+          <div class="form-element">
+            <label for="firstName" class="form-label">First name:</label>
+            <input id="firstName" v-model="firstName">
+          </div>
+          <div class="form-element">
+            <label for="lastName" class="form-label">Last name:</label>
+            <input id="lastName" v-model="lastName">
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="form-repeatable" v-for="(contact, index) in contacts" :key="index">
+            <div class="form-element">
+              <label for="email" class="form-label">E-Mail:</label>
+              <input id="email" type="email" v-model="contact.email">
+            </div>
+            <div class="form-element">
+              <label for="phone" class="form-label">Phone:</label>
+              <input id="phone" v-model="contact.phone">
+            </div>
+          </div>
+          <button class="form-button" @click="addContact">Add contact</button>
+        </section>
+
+        <section class="form-section">
+          <div class="form-element">
+            <label for="zip" class="form-label">ZIP:</label>
+            <input id="zip" v-model="zip">
+          </div>
+          <div class="form-element">
+            <label for="town" class="form-label">Town:</label>
+            <input id="town" v-model="town">
+          </div>
+          <div class="form-element">
+            <label for="street" class="form-label">Street:</label>
+            <input id="street" v-model="street">
+          </div>
+        </section>
       </div>
-    </div>
+
+      <button class="form-button" @click="submit">Submit</button>
+    </template>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
-import { validationMixin } from 'vuelidate';
-import { required, numeric } from 'vuelidate/lib/validators';
 
-import ListMedia from '../components/organisms/list/ListMedia.vue';
-import BlockMediaPost from '../components/molecules/block/BlockMediaPost.vue';
-import FormElement from '../components/molecules/form/FormElement.vue';
-import AppButton from '../components/atoms/app/AppButton.vue';
-import FormInput from '../components/atoms/form/FormInput.vue';
-import FormMessage from '../components/atoms/form/FormMessage.vue';
-import FormLabel from '../components/atoms/form/FormLabel.vue';
-import TextHeadline from '../components/atoms/text/TextHeadline.vue';
+import { SUBMIT } from '../store/action-types';
+import { ADD_ROW } from '../store/mutation-types';
 
-const { mapState, mapActions } = createNamespacedHelpers(`post`);
+import {
+  mapAddressFields,
+  mapContactMultiRowFields,
+  mapNameFields,
+} from '../store/modules/customer';
+
+// We're dynamically registering the
+// `customer` store module. This has
+// the benefit of only loading this
+// module, if it's actually needed.
+// Before registering the module, we're
+// checking if it's already registered
+// which can happen in combination with
+// webpacks hot reloading.
+// if (!store.state.customer) store.registerModule(`customer`, customer);
+
+const {
+  mapActions: mapCustomerActions,
+  mapState: mapCustomerState,
+} = createNamespacedHelpers(`customer`);
+const {
+  mapMutations: mapContactMutations,
+} = createNamespacedHelpers(`customer/contact`);
 
 export default {
-  components: {
-    ListMedia,
-    BlockMediaPost,
-    FormElement,
-    AppButton,
-    FormInput,
-    FormMessage,
-    FormLabel,
-    TextHeadline,
-  },
-  mixins: [validationMixin],
-  data() {
-    return {
-      postId: 1,
-    };
-  },
+  name: `PageCustomer`,
+  // Here we're wiring everything up.
   computed: {
-    ...mapState({
-      posts: state => state.posts,
-      currentPost: state => state.current,
-    }),
+    ...mapCustomerState([`error`, `success`]),
+    // You can read more about mapping field
+    // values in two of my previous articles.
+    // https://markus.oberlehner.net/blog/form-fields-two-way-data-binding-and-vuex/
+    // https://markus.oberlehner.net/blog/how-to-handle-multi-row-forms-with-vue-vuex-and-vuex-map-fields/
+    ...mapNameFields([`rows[0].firstName`, `rows[0].lastName`]),
+    ...mapContactMultiRowFields({ contacts: `rows` }),
+    ...mapAddressFields([`rows[0].zip`, `rows[0].town`, `rows[0].street`]),
   },
   methods: {
-    ...mapActions([
-      `fetchPost`,
-    ]),
-  },
-  validations: {
-    postId: {
-      required,
-      numeric,
-    },
-  },
-  fetch({ store }) {
-    return Promise.all([
-      store.dispatch(`post/fetchPosts`),
-      store.dispatch(`post/fetchPost`, 1),
-    ]);
+    ...mapContactMutations({
+      addContact: ADD_ROW,
+    }),
+    ...mapCustomerActions({
+      submit: SUBMIT,
+    }),
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import '{ .o-grid } from ~@avalanche/object-grid';
-@import '{
-  .o-vertical-spacing,
-  .o-vertical-spacing--l
-} from ~@avalanche/object-vertical-spacing';
-@import '{
-  .u-width-12/12,
-  .u-width-6/12@m
-} from ~@avalanche/utility-width';
-</style>
