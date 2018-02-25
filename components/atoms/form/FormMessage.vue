@@ -1,9 +1,9 @@
 <template>
   <div
-    class="c-form-message"
     :class="{
       [`c-form-message--${type}`]: type,
     }"
+    class="c-form-message"
   >
     <slot></slot>
   </div>

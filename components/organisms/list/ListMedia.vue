@@ -1,7 +1,7 @@
 <template>
   <ul class="c-list-media">
-    <li class="c-list-media__item" v-for="item in items" :key="item.id">
-      <slot name="item" v-bind="item"></slot>
+    <li v-for="item in items" :key="item.id" class="c-list-media__item">
+      <slot v-bind="item" name="item"></slot>
     </li>
   </ul>
 </template>

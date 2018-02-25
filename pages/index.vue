@@ -15,9 +15,9 @@
         <list-media :items="posts" data-qa="post list">
           <block-media-post
             slot="item"
-            slot-scope="post"
             :title="post.title"
-            :body="post.body">
+            :body="post.body"
+            slot-scope="post">
           </block-media-post>
         </list-media>
       </div>
@@ -44,7 +44,7 @@
             v-model="postId"
             @input="$v.postId.$touch()">
           </form-input>
-          <form-message slot="end" v-if="$v.postId.$error" type="error">
+          <form-message v-if="$v.postId.$error" slot="end" type="error">
             <p v-if="!$v.postId.$required">Field is required.</p>
             <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
           </form-message>

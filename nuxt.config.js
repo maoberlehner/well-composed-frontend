@@ -35,6 +35,7 @@ module.exports = {
     },
     extractCSS: true,
   },
+  ignore: [`**/*.spec.js`],
   modules: [
     `@nuxtjs/pwa`,
   ],
