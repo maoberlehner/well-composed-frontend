@@ -1,4 +1,4 @@
-import { query } from '../../utils/graphql';
+import { client } from '../../utils/graphql';
 
 import {
   SET_POST,
@@ -9,24 +9,24 @@ export default {
   namespaced: true,
   actions: {
     fetchPosts({ commit }) {
-      return query(`
-        query {
+      return client.request(`
+        query Posts {
           posts {
             title
             body
           }
         }
-      `).then(response => commit(SET_POSTS, response.data.posts));
+      `).then(response => commit(SET_POSTS, response.posts));
     },
     fetchPost({ commit }, id) {
-      return query(`
-        query {
-          post(id: ${id}) {
+      return client.request(`
+        query Post($id: ID!) {
+          post(id: $id) {
             title
             body
           }
         }
-      `).then(response => commit(SET_POST, response.data.post));
+      `, { id }).then(response => commit(SET_POST, response.post));
     },
   },
   mutations: {
