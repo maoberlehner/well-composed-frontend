@@ -8,25 +8,29 @@ import {
 export default {
   namespaced: true,
   actions: {
-    fetchPosts({ commit }) {
-      return client.request(`
+    async fetchPosts({ commit }) {
+      const { posts } = await client.request(`
         query Posts {
           posts {
             title
             body
           }
         }
-      `).then(response => commit(SET_POSTS, response.posts));
+      `);
+
+      commit(SET_POSTS, posts);
     },
-    fetchPost({ commit }, id) {
-      return client.request(`
+    async fetchPost({ commit }, id) {
+      const { post } = await client.request(`
         query Post($id: ID!) {
           post(id: $id) {
             title
             body
           }
         }
-      `, { id }).then(response => commit(SET_POST, response.post));
+      `, { id });
+
+      commit(SET_POST, post);
     },
   },
   mutations: {
