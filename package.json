@@ -99,7 +99,6 @@
     "transform": {
       ".*\\.(vue)$": "vue-jest",
       "^.+\\.js$": "babel-jest"
-    },
-    "mapCoverage": true
+    }
   }
 }
