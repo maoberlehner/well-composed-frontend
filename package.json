@@ -91,6 +91,11 @@
     "last 2 versions"
   ],
   "jest": {
+    "globals": {
+      "vue-jest": {
+        "experimentalCSSCompile": false
+      }
+    },
     "moduleFileExtensions": [
       "js",
       "json",
