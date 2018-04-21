@@ -15,9 +15,9 @@
         <list-media :items="posts" data-qa="post list">
           <block-media-post
             slot="item"
+            slot-scope="post"
             :title="post.title"
-            :body="post.body"
-            slot-scope="post">
+            :body="post.body">
           </block-media-post>
         </list-media>
       </div>
