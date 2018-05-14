@@ -18,6 +18,7 @@ beforeEach(() => {
         fetchPost: jest.fn(),
       },
       state: {
+        posts: [],
         current: {
           title: `Title`,
           body: `Body`,

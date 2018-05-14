@@ -1,12 +1,12 @@
 import post from './post';
 
 jest.mock(`../../utils/graphql`, () => ({
-  query: () => Promise.resolve({
-    data: {
+  client: {
+    request: () => Promise.resolve({
       post: { foo: `bar` },
       posts: [`foo`, `bar`],
-    },
-  }),
+    }),
+  },
 }));
 
 describe(`post`, () => {
