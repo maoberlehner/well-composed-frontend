@@ -1,5 +1,6 @@
 const { defineSupportCode } = require(`cucumber`);
 const { client } = require(`nightwatch-cucumber`);
+const page = require(`./page`);
 
 const runAfter = [
   // Clear the storage after every test run
@@ -9,5 +10,8 @@ const runAfter = [
 ];
 
 defineSupportCode(({ After }) => {
-  After(() => client.execute(runAfter.join(``)));
+  After(() => {
+    page.reset();
+    client.execute(runAfter.join(``));
+  });
 });

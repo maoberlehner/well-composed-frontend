@@ -33,7 +33,7 @@ module.exports = {
       selenium_host: `localhost`,
       default_path_prefix: ``,
       globals: {
-        url: `http://127.0.0.1:3000`,
+        url: `http://localhost:3000`,
       },
       screenshots: {
         enabled: true,

@@ -10,7 +10,13 @@ module.exports = {
   },
   loading: { color: `#00acc1` },
   build: {
-    extend(config) {
+    extend(config, { isClient }) {
+      if (isClient && process.env.NODE_ENV === `test`) {
+        // eslint-disable-next-line no-param-reassign
+        config.entry = Array.isArray(config.entry) ? config.entry : [config.entry];
+        config.entry.unshift(`./test/scripts/network-stubs.js`);
+      }
+
       const sassLoader = config.module.rules
         .find(({ test }) => test.test(`.scss`)).oneOf[1].use
         .find(({ loader }) => loader === `sass-loader`);
