@@ -1,4 +1,4 @@
-const { defineSupportCode } = require(`cucumber`);
+const { After } = require(`cucumber`);
 const { client } = require(`nightwatch-cucumber`);
 const page = require(`./page`);
 
@@ -9,9 +9,7 @@ const runAfter = [
   `window.localStorage.clear();`,
 ];
 
-defineSupportCode(({ After }) => {
-  After(() => {
-    page.reset();
-    client.execute(runAfter.join(``));
-  });
+After(() => {
+  page.reset();
+  client.execute(runAfter.join(``));
 });
