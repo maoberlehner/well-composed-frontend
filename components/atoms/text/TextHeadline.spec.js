@@ -1,10 +1,10 @@
-import { shallow } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import TextHeadline from './TextHeadline.vue';
 
 describe(`TextHeadline`, () => {
   test(`It should render a \`<hN>\` tag of the given level.`, () => {
-    const wrapper = shallow(TextHeadline, {
+    const wrapper = shallowMount(TextHeadline, {
       propsData: { level: 1 },
     });
 
@@ -12,7 +12,7 @@ describe(`TextHeadline`, () => {
   });
 
   test(`It should have a size class which matches the level if no size is given.`, () => {
-    const wrapper = shallow(TextHeadline, {
+    const wrapper = shallowMount(TextHeadline, {
       propsData: { level: 3 },
     });
 
@@ -20,7 +20,7 @@ describe(`TextHeadline`, () => {
   });
 
   test(`It should have a size class according to the given size.`, () => {
-    const wrapper = shallow(TextHeadline, {
+    const wrapper = shallowMount(TextHeadline, {
       propsData: {
         level: 1,
         size: 3,

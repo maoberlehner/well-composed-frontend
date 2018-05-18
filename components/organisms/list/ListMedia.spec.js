@@ -1,10 +1,10 @@
-import { shallow } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import ListMedia from './ListMedia.vue';
 
 describe(`ListMedia`, () => {
   test(`It should render an \`<ul>\`.`, () => {
-    const wrapper = shallow(ListMedia, {
+    const wrapper = shallowMount(ListMedia, {
       propsData: {
         items: [],
       },

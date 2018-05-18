@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import { createLocalVue, shallow } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import PageIndex from './index.vue';
 
@@ -35,13 +35,13 @@ beforeEach(() => {
 
 describe(`PageIndex`, () => {
   test(`It should render a \`<div>\`.`, () => {
-    const wrapper = shallow(PageIndex, { store, localVue });
+    const wrapper = shallowMount(PageIndex, { store, localVue });
 
     expect(wrapper.is(`div`)).toBe(true);
   });
 
   test(`It should fetch data from the store.`, () => {
-    const wrapper = shallow(PageIndex, { store, localVue });
+    const wrapper = shallowMount(PageIndex, { store, localVue });
     const mockDispatch = jest.fn();
     const mockStore = { dispatch: mockDispatch };
 
