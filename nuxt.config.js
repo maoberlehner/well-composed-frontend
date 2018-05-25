@@ -27,6 +27,7 @@ module.exports = {
   },
   ignore: [`**/*.spec.js`],
   modules: [
+    `@nuxtjs/dotenv`,
     `@nuxtjs/pwa`,
   ],
 };

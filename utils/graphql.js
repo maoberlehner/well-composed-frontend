@@ -1,3 +1,3 @@
 import { GraphQLClient } from 'graphql-request';
 
-export const client = new GraphQLClient(`http://localhost:3001/graphql`);
+export const client = new GraphQLClient(process.env.API_URL);

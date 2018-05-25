@@ -8,7 +8,7 @@ To enable (almost) instant loading, server side rendering is utilized to speed u
 The combination of webpack and node-sass-magic-importer makes it possible to modularize every aspect of the frontend workflow. Frontend developers are using JavaScript modules for quite some time now and with ES6 it got even more comfortable doing so. Although Sass made it much easier to also modularize your CSS code it is still laking an easy way to load styles from third party modules. For this project [node-sass-magic-importer](https://github.com/maoberlehner/node-sass-magic-importer) is used to load styles from [avalanche](https://avalanche.oberlehner.net/) packages.
 
 ## Getting started
-- `yarn install` Install dependencies.
+- `yarn init` Install dependencies and set up correct `.env` file.
 - `yarn run dev` Serve with hot reload at localhost:3000.
 - `yarn run build` Build for production.
 - `yarn start` Launch server.
