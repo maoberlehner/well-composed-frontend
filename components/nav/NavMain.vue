@@ -33,7 +33,7 @@ export default {
 @import '~@avalanche/setting-breakpoints';
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../../../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
 .c-nav-main {
   &__list {

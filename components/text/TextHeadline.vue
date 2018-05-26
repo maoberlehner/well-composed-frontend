@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@avalanche/setting-font-sizes';
 @import '~@avalanche/setting-spacings';
-@import '../../../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
 .c-text-headline {
   &--size1 {

@@ -16,7 +16,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@avalanche/setting-spacings';
-@import '../../../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
 .c-form-element {
   &__field:not(:first-child) {

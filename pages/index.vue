@@ -64,26 +64,26 @@ import { createNamespacedHelpers } from 'vuex';
 import { validationMixin } from 'vuelidate';
 import { required, numeric } from 'vuelidate/lib/validators';
 
-import ListMedia from '../components/organisms/list/ListMedia.vue';
-import BlockMediaPost from '../components/molecules/block/BlockMediaPost.vue';
-import FormElement from '../components/molecules/form/FormElement.vue';
-import AppButton from '../components/atoms/app/AppButton.vue';
-import FormInput from '../components/atoms/form/FormInput.vue';
-import FormMessage from '../components/atoms/form/FormMessage.vue';
-import FormLabel from '../components/atoms/form/FormLabel.vue';
-import TextHeadline from '../components/atoms/text/TextHeadline.vue';
+import AppButton from '../components/app/AppButton.vue';
+import BlockMediaPost from '../components/block/BlockMediaPost.vue';
+import FormElement from '../components/form/FormElement.vue';
+import FormInput from '../components/form/FormInput.vue';
+import FormLabel from '../components/form/FormLabel.vue';
+import FormMessage from '../components/form/FormMessage.vue';
+import ListMedia from '../components/list/ListMedia.vue';
+import TextHeadline from '../components/text/TextHeadline.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
   components: {
-    ListMedia,
+    AppButton,
     BlockMediaPost,
     FormElement,
-    AppButton,
     FormInput,
-    FormMessage,
     FormLabel,
+    FormMessage,
+    ListMedia,
     TextHeadline,
   },
   mixins: [validationMixin],

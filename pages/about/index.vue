@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TextHeadline from '../../components/atoms/text/TextHeadline.vue';
+import TextHeadline from '../../components/text/TextHeadline.vue';
 
 export default {
   components: {

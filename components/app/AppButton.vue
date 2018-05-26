@@ -11,6 +11,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 @import '{ .c-button as .c-app-button } from ~@avalanche/component-button';
 </style>

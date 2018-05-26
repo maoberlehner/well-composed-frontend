@@ -11,7 +11,7 @@
 
 <script>
 import BlockMedia from './BlockMedia.vue';
-import TextHeadline from '../../atoms/text/TextHeadline.vue';
+import TextHeadline from '../text/TextHeadline.vue';
 
 export default {
   name: `BlockMediaPost`,

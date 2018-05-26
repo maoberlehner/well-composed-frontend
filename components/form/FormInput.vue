@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@avalanche/setting-spacings';
 @import '~@avalanche/setting-colors';
-@import '../../../assets/scss/settings/generic';
+@import '../../assets/scss/settings/generic';
 
 .c-form-input {
   display: block;

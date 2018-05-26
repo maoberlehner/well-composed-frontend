@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import NavMain from '../components/molecules/nav/NavMain.vue';
+import NavMain from '../components/nav/NavMain.vue';
 
 export default {
   components: {
