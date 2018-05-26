@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
-const Nightwatch = require(`nightwatch`);
 const browserstack = require(`browserstack-local`);
+const Nightwatch = require(`nightwatch`);
 
 try {
   // Code to start browserstack local before start of test.

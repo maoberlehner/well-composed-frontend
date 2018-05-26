@@ -61,8 +61,8 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
+import { numeric, required } from 'vuelidate/lib/validators';
 import { validationMixin } from 'vuelidate';
-import { required, numeric } from 'vuelidate/lib/validators';
 
 import AppButton from '../components/app/AppButton.vue';
 import BlockMediaPost from '../components/block/BlockMediaPost.vue';
