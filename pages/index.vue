@@ -64,6 +64,9 @@ import { createNamespacedHelpers } from 'vuex';
 import { numeric, required } from 'vuelidate/lib/validators';
 import { validationMixin } from 'vuelidate';
 
+import post from '../store/modules/post';
+import registerStoreModule from '../utils/register-store-module';
+
 import AppButton from '../components/app/AppButton.vue';
 import BlockMediaPost from '../components/block/BlockMediaPost.vue';
 import FormElement from '../components/form/FormElement.vue';
@@ -98,6 +101,9 @@ export default {
       currentPost: state => state.current,
     }),
   },
+  beforeCreate() {
+    registerStoreModule({ module: post, moduleName: `post`, store: this.$store });
+  },
   methods: {
     ...mapActions([
       `fetchPost`,
@@ -110,6 +116,8 @@ export default {
     },
   },
   fetch({ store }) {
+    registerStoreModule({ module: post, moduleName: `post`, store });
+
     return Promise.all([
       store.dispatch(`post/fetchPosts`),
       store.dispatch(`post/fetchPost`, 1),
