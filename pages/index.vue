@@ -42,8 +42,8 @@
           <form-input
             id="post-id"
             v-model="postId"
-            @input="$v.postId.$touch()"
             data-qa="post id"
+            @input="$v.postId.$touch()"
           >
           </form-input>
           <form-message v-if="$v.postId.$error" slot="end" type="error">
@@ -51,7 +51,7 @@
             <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
           </form-message>
         </form-element>
-        <app-button @click.native="fetchPost(postId)" data-qa="load post button">
+        <app-button data-qa="load post button" @click.native="fetchPost(postId)">
           Load
         </app-button>
       </div>
