@@ -51,7 +51,7 @@
             <p v-if="!$v.postId.$numeric">Field must be numeric.</p>
           </form-message>
         </form-element>
-        <app-button data-qa="load post button" @click.native="fetchPost(postId)">
+        <app-button data-qa="load post" @click.native="fetchPost(postId)">
           Load
         </app-button>
       </div>

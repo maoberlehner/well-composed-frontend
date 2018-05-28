@@ -1,13 +1,19 @@
 const { client } = require(`nightwatch-cucumber`);
-const { Given, When, Then } = require(`cucumber`);
+const cssToXPath = require(`css-to-xpath`);
 
+const {
+  PREFIXES,
+  SUFFIXES,
+  fromString,
+  makeMatcher,
+} = require(`../../helpers/selector`);
+const { Given, When, Then } = require(`../../helpers/step`);
 const deviceSizes = require(`../../helpers/device-sizes`);
-const nestedSelector = require(`../../helpers/nested-selector`);
 const page = require(`../../helpers/page`);
 const resolveMockFile = require(`../../helpers/resolve-mock-file`);
 const routes = require(`../../helpers/routes`);
 
-const DEFAULT_WAIT_IN_MS = 500;
+const DEFAULT_TIMEOUT_IN_MS = 500;
 
 let networkStubs = [];
 
@@ -44,39 +50,82 @@ When(/^I (?:view).*? `(.*?)`.*?$/, deviceSize =>
 
 When(/^I (?:pause).*? "(.*)"$/, delay => client.pause(delay));
 
-When(/^I (?:enter|input|supply|type).*? "(.*?)" in.*? (`.*`)$/, (value, selectorChain) =>
-  client.setValue(nestedSelector(selectorChain), value));
+When(/^I enter "(.*)" (.*)$/, (value, string) => {
+  const matcher = makeMatcher({ suffixes: [`field`, ...SUFFIXES] });
+  const selector = fromString({ string, matcher });
 
-When(/^I (?:activate|click).*? (`.*`)$/, selectorChain =>
-  client.click(nestedSelector(selectorChain)));
+  return client.useCss()
+    .clearValue(selector)
+    .setValue(selector, value);
+});
 
-Then(/^I (?:find|identify|see|spot).*? (`.*`).*?$/, selectorChain =>
-  client.expect.element(nestedSelector(selectorChain)).to.be.visible);
+When(/^I click (.*)$/, (string) => {
+  const matcher = makeMatcher({
+    prefixes: [`on a`, `on the`, `on`, ...PREFIXES],
+    suffixes: [`button`, `link`, ...SUFFIXES],
+  });
+  const selector = fromString({ string, matcher });
 
-Then(/^I (?:can|don)'t (?:find|identify|see|spot).*? (`.*`).*?$/, selectorChain =>
-  client.expect.element(nestedSelector(selectorChain)).to.not.be.visible);
+  client.useCss().click(selector);
+});
 
-Then(/^I (?:expect) the text.*? "(.*?)".*? to be present$/, text =>
-  client.useXpath().expect.element(`//*[contains(text(), '${text}')]`).to.be.present.before(DEFAULT_WAIT_IN_MS));
+Then(/^the text "(.*)" should(n't| not)? be visible(.*)?$/, (text, not, string) => {
+  const negate = not !== undefined;
+  const matcher = makeMatcher();
+  const selector = fromString({ string, matcher });
+  const xPathSelector = selector
+    ? cssToXPath.parse(selector)
+      .where(cssToXPath.parse(`*`).text().contains(text))
+      .toXPath()
+    : `//*[contains(text(), '${text}')]`;
 
-Then(/^I (?:expect).*? (`.*`).*? to not be present$/, selectorChain =>
-  client.expect.element(nestedSelector(selectorChain)).to.not.be.present);
+  let expect = client.useXpath().expect.element(xPathSelector);
+  if (negate) expect = expect.not;
 
-Then(/^I (?:expect).*? (`.*`).*? to be present$/, selectorChain =>
-  client.expect.element(nestedSelector(selectorChain)).to.be.present);
+  return expect.to.be.present.before(DEFAULT_TIMEOUT_IN_MS);
+});
 
-Then(/^I (?:expect).*? (`.*`) (?:in|with) "(.*?)" (?:modifier|variant|status)$/, (selectorChain, variant) =>
-  client.expect
-    .element(`
-              ${nestedSelector(selectorChain)}[class*="--${variant}"],
-              ${nestedSelector(selectorChain)}[class*="is-${variant}"]
-          `)
-    .to.be.present);
+Then(/^there should be (\d+) (.*)?elements (.*)$/, (n, elementString, string) => {
+  const matcher = makeMatcher();
+  const selector = fromString({ string, matcher });
 
-Then(/^I (?:expect).*? (`.*`) (?:with) "(.*?)" (?:state)$/, (selectorChain, state) =>
-  client.expect
-    .element(`${nestedSelector(selectorChain)}:${state}`)
-    .to.be.present);
+  const elementMatcher = makeMatcher({
+    prefixes: [`^`],
+    suffixes: [` $`],
+  });
+  const elementSelector = fromString({
+    string: elementString,
+    matcher: elementMatcher,
+  });
 
-Then(/^I (?:expect).*? `(.*?)`.*? opens$/, routeName =>
-  client.assert.urlEquals(routes[routeName]));
+  const xPathSelector = cssToXPath
+    .parse(`${selector} > ${elementSelector || `*`}`)
+    .toXPath();
+
+  return client.useXpath().expect
+    .element(`${xPathSelector}[${n}]`)
+    .to.be.present
+    .before(DEFAULT_TIMEOUT_IN_MS);
+});
+
+Then(/^I should(n't| not)? see (.*?)(in the .*)?$/, (not, string, parentString) => {
+  const matcher = makeMatcher({
+    prefixes: [...PREFIXES, `the`, `an`, `a`, `^`],
+    suffixes: [`$`],
+  });
+  const elementSelector = fromString({ string, matcher });
+
+  const parentMatcher = makeMatcher();
+  const parentSelector = fromString({
+    string: parentString,
+    matcher: parentMatcher,
+  });
+
+  const negate = not !== undefined;
+  const selector = `${parentSelector} ${elementSelector}`;
+
+  let expect = client.useCss().expect.element(selector);
+  if (negate) expect = expect.not;
+
+  return expect.to.be.present.before(DEFAULT_TIMEOUT_IN_MS);
+});
