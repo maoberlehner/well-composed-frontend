@@ -43,9 +43,9 @@ describe(`PageIndex`, () => {
   test(`It should fetch data from the store.`, () => {
     const wrapper = shallowMount(PageIndex, { store, localVue });
     const mockDispatch = jest.fn();
-    const mockStore = { dispatch: mockDispatch };
+    store.dispatch = mockDispatch;
 
-    wrapper.vm.$options.fetch({ store: mockStore });
+    wrapper.vm.$options.fetch({ store });
 
     expect(mockDispatch).toBeCalledWith(`post/fetchPosts`);
     expect(mockDispatch).toBeCalledWith(`post/fetchPost`, 1);
