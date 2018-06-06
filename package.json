@@ -13,7 +13,7 @@
     "generate": "NODE_ENV=production nuxt generate",
     "api": "node api/server.js",
     "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:styles": "stylelint --syntax scss '+(assets|components|layouts|pages)/**/*.+(scss|vue)'",
+    "lint:styles": "stylelint '+(assets|components|layouts|pages)/**/*.+(scss|vue)'",
     "lint:gherkin": "gherkin-lint test/features",
     "lint": "yarn run lint:scripts && yarn run lint:styles && yarn run lint:gherkin",
     "test:serve": "NODE_ENV=test nuxt",
@@ -61,7 +61,6 @@
   "devDependencies": {
     "@avalanche/eslint-config": "^2.0.0",
     "@avalanche/stylelint-config": "^0.1.2",
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
     "@vue/test-utils": "^1.0.0-beta.16",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.4",
