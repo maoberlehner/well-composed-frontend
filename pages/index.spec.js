@@ -4,36 +4,35 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 import PageIndex from './index.vue';
 
 const localVue = createLocalVue();
-
 localVue.use(Vuex);
 
-let modules;
-let store;
+describe(`PageIndex`, () => {
+  let modules;
+  let store;
 
-beforeEach(() => {
-  modules = {
-    post: {
-      namespaced: true,
-      actions: {
-        fetchPost: jest.fn(),
-      },
-      state: {
-        posts: [],
-        current: {
-          title: `Title`,
-          body: `Body`,
+  beforeEach(() => {
+    modules = {
+      post: {
+        namespaced: true,
+        actions: {
+          fetchPost: jest.fn(),
+        },
+        state: {
+          posts: [],
+          current: {
+            title: `Title`,
+            body: `Body`,
+          },
         },
       },
-    },
-  };
+    };
 
-  store = new Vuex.Store({
-    state: { },
-    modules,
+    store = new Vuex.Store({
+      state: { },
+      modules,
+    });
   });
-});
 
-describe(`PageIndex`, () => {
   test(`It should render a \`<div>\`.`, () => {
     const wrapper = shallowMount(PageIndex, { store, localVue });
 
