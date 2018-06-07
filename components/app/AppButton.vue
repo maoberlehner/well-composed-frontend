@@ -1,5 +1,5 @@
 <template>
-  <button class="c-app-button">
+  <button :class="$options.name">
     <slot></slot>
   </button>
 </template>
@@ -12,5 +12,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/scss/settings/generic';
-@import '{ .c-button as .c-app-button } from ~@avalanche/component-button';
+@import '{ .c-button as .AppButton } from ~@avalanche/component-button';
 </style>

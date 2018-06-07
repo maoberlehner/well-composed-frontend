@@ -1,21 +1,23 @@
 <template>
-  <nav class="c-nav-main">
-    <ul class="c-nav-main__list">
-      <li class="c-nav-main__item">
+  <nav :class="$options.name">
+    <ul :class="`${$options.name}__list`">
+      <li :class="`${$options.name}__item`">
         <router-link
-          class="c-nav-main__link"
+          :class="`${$options.name}__link`"
           active-class="is-active"
           to="/"
-          exact>
+          exact
+        >
           Posts
         </router-link>
       </li>
-      <li class="c-nav-main__item">
+      <li :class="`${$options.name}__item`">
         <router-link
-          class="c-nav-main__link"
+          :class="`${$options.name}__link`"
           active-class="is-active"
           to="/about"
-          exact>
+          exact
+        >
           About
         </router-link>
       </li>
@@ -35,7 +37,7 @@ export default {
 @import '~@avalanche/setting-colors';
 @import '../../assets/scss/settings/generic';
 
-.c-nav-main {
+.NavMain {
   &__list {
     padding-left: 0;
     list-style-type: none;

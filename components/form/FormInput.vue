@@ -1,7 +1,8 @@
 <template>
   <input
-    class="c-form-input"
-    @input="$emit('input', $event.target.value)">
+    :class="$options.name"
+    @input="$emit('input', $event.target.value)"
+  >
 </template>
 
 <script>
@@ -15,7 +16,7 @@ export default {
 @import '~@avalanche/setting-colors';
 @import '../../assets/scss/settings/generic';
 
-.c-form-input {
+.FormInput {
   display: block;
   padding: setting-spacing(xs);
   width: 100%;

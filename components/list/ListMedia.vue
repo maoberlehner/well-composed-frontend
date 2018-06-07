@@ -1,6 +1,6 @@
 <template>
-  <ul class="c-list-media">
-    <li v-for="item in items" :key="item.id" class="c-list-media__item">
+  <ul :class="$options.name">
+    <li v-for="item in items" :key="item.id" :class="`${$options.name}__item`">
       <slot v-bind="item" name="item"></slot>
     </li>
   </ul>
@@ -23,7 +23,7 @@ export default {
 @import '~@avalanche/setting-spacings';
 @import '../../assets/scss/settings/generic';
 
-.c-list-media {
+.ListMedia {
   padding-left: 0;
   list-style-type: none;
 

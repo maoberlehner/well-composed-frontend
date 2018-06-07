@@ -1,9 +1,9 @@
 <template>
-  <div class="c-block-media">
-    <div v-if="$slots.figure" class="c-block-media__figure">
+  <div :class="$options.name">
+    <div v-if="$slots.figure" :class="`${$options.name}__figure`">
       <slot name="figure"></slot>
     </div>
-    <div class="c-block-media__body">
+    <div :class="`${$options.name}__body`">
       <slot></slot>
     </div>
   </div>

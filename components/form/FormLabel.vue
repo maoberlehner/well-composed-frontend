@@ -1,5 +1,5 @@
 <template>
-  <label class="c-form-label">
+  <label :class="$options.name">
     <slot></slot>
   </label>
 </template>

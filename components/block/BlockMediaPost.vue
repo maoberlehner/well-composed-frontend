@@ -1,5 +1,5 @@
 <template>
-  <div class="c-block-media-post">
+  <div :class="$options.name">
     <block-media>
       <text-headline :level="2" :size="3">
         {{ title }}

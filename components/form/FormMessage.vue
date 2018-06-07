@@ -1,9 +1,9 @@
 <template>
   <div
     :class="{
-      [`c-form-message--${type}`]: type,
+      [$options.name]: true,
+      [`${$options.name}--${type}`]: type,
     }"
-    class="c-form-message"
   >
     <slot></slot>
   </div>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.c-form-message {
+.FormMessage {
   &--error {
     color: red;
   }

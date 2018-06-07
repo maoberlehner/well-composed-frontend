@@ -17,8 +17,8 @@ export default {
       `h${this.level}`,
       {
         class: {
-          'c-text-headline': true,
-          [`c-text-headline--size${size}`]: size,
+          [this.$options.name]: true,
+          [`${this.$options.name}--size${size}`]: size,
         },
       },
       this.$slots.default,
@@ -32,7 +32,7 @@ export default {
 @import '~@avalanche/setting-spacings';
 @import '../../assets/scss/settings/generic';
 
-.c-text-headline {
+.TextHeadline {
   &--size1 {
     font-size: setting-font-size(xxxl);
   }

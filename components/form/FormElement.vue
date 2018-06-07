@@ -1,7 +1,7 @@
 <template>
-  <div class="c-form-element">
+  <div :class="$options.name">
     <slot name="start"></slot>
-    <div class="c-form-element__field">
+    <div :class="`${$options.name}__field`">
       <slot></slot>
     </div>
     <slot name="end"></slot>
@@ -18,7 +18,7 @@ export default {
 @import '~@avalanche/setting-spacings';
 @import '../../assets/scss/settings/generic';
 
-.c-form-element {
+.FormElement {
   &__field:not(:first-child) {
     margin-top: setting-spacing(xs);
   }
