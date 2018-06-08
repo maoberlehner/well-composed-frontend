@@ -4,9 +4,7 @@
       <li :class="`${$options.name}__item`">
         <router-link
           :class="`${$options.name}__link`"
-          active-class="is-active"
           to="/"
-          exact
         >
           Posts
         </router-link>
@@ -14,9 +12,7 @@
       <li :class="`${$options.name}__item`">
         <router-link
           :class="`${$options.name}__link`"
-          active-class="is-active"
           to="/about"
-          exact
         >
           About
         </router-link>

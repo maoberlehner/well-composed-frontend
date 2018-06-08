@@ -9,6 +9,9 @@ module.exports = {
     ],
   },
   loading: { color: `#00acc1` },
+  router: {
+    linkExactActiveClass: `is-active`,
+  },
   build: {
     extend(config, { isClient }) {
       if (isClient && process.env.NODE_ENV === `test`) {
