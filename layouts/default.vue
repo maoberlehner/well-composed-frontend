@@ -15,6 +15,7 @@
 import NavMain from '../components/nav/NavMain.vue';
 
 export default {
+  name: `LayoutDefault`,
   components: {
     NavMain,
   },
