@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
+import { FETCH_POST, FETCH_POSTS } from '../store/action-types';
+
 import PageIndex from './index.vue';
 
 const localVue = createLocalVue();
@@ -15,7 +17,7 @@ describe(`PageIndex`, () => {
       post: {
         namespaced: true,
         actions: {
-          fetchPost: jest.fn(),
+          FETCH_POST: jest.fn(),
         },
         state: {
           posts: [],
@@ -46,7 +48,7 @@ describe(`PageIndex`, () => {
 
     wrapper.vm.$options.fetch({ store });
 
-    expect(mockDispatch).toBeCalledWith(`post/fetchPosts`);
-    expect(mockDispatch).toBeCalledWith(`post/fetchPost`, 1);
+    expect(mockDispatch).toBeCalledWith(`post/${FETCH_POSTS}`);
+    expect(mockDispatch).toBeCalledWith(`post/${FETCH_POST}`, 1);
   });
 });

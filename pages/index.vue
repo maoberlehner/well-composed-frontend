@@ -64,6 +64,7 @@ import { createNamespacedHelpers } from 'vuex';
 import { numeric, required } from 'vuelidate/lib/validators';
 import { validationMixin } from 'vuelidate';
 
+import { FETCH_POST, FETCH_POSTS } from '../store/action-types';
 import post from '../store/modules/post';
 import registerStoreModule from '../utils/register-store-module';
 
@@ -105,9 +106,9 @@ export default {
     registerStoreModule({ module: post, moduleName: `post`, store: this.$store });
   },
   methods: {
-    ...mapActions([
-      `fetchPost`,
-    ]),
+    ...mapActions({
+      fetchPost: FETCH_POST,
+    }),
   },
   validations: {
     postId: {
@@ -119,8 +120,8 @@ export default {
     registerStoreModule({ module: post, moduleName: `post`, store });
 
     return Promise.all([
-      store.dispatch(`post/fetchPosts`),
-      store.dispatch(`post/fetchPost`, 1),
+      store.dispatch(`post/${FETCH_POSTS}`),
+      store.dispatch(`post/${FETCH_POST}`, 1),
     ]);
   },
 };

@@ -1,4 +1,5 @@
 import { client } from '../../utils/graphql';
+import { FETCH_POST, FETCH_POSTS } from '../../store/action-types';
 
 import {
   SET_POST,
@@ -8,7 +9,7 @@ import {
 export default {
   namespaced: true,
   actions: {
-    async fetchPosts({ commit }) {
+    async [FETCH_POSTS]({ commit }) {
       const { posts } = await client.request(`
         query Posts {
           posts {
@@ -20,7 +21,7 @@ export default {
 
       commit(SET_POSTS, posts);
     },
-    async fetchPost({ commit }, id) {
+    async [FETCH_POST]({ commit }, id) {
       const { post } = await client.request(`
         query Post($id: ID!) {
           post(id: $id) {

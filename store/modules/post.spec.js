@@ -1,3 +1,5 @@
+import { FETCH_POST, FETCH_POSTS } from '../../store/action-types';
+
 import post from './post';
 
 jest.mock(`../../utils/graphql`, () => ({
@@ -11,21 +13,21 @@ jest.mock(`../../utils/graphql`, () => ({
 
 describe(`post`, () => {
   describe(`actions`, () => {
-    describe(`fetchPosts()`, () => {
+    describe(`FETCH_POSTS()`, () => {
       test(`It should commit the \`SET_POSTS\` mutation.`, async () => {
         const commit = jest.fn();
 
-        await post.actions.fetchPosts({ commit });
+        await post.actions[FETCH_POSTS]({ commit });
 
         expect(commit).toBeCalledWith(`SET_POSTS`, [`foo`, `bar`]);
       });
     });
 
-    describe(`fetchPost()`, () => {
+    describe(`FETCH_POST()`, () => {
       test(`It should commit the \`SET_POST\` mutation.`, async () => {
         const commit = jest.fn();
 
-        await post.actions.fetchPost({ commit });
+        await post.actions[FETCH_POST]({ commit });
 
         expect(commit).toBeCalledWith(`SET_POST`, { foo: `bar` });
       });
