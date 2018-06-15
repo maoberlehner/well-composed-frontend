@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import { numeric, required } from 'vuelidate/lib/validators';
 import { validationMixin } from 'vuelidate';
 
@@ -76,8 +76,6 @@ import FormLabel from '../components/form/FormLabel.vue';
 import FormMessage from '../components/form/FormMessage.vue';
 import ListMedia from '../components/list/ListMedia.vue';
 import TextHeadline from '../components/text/TextHeadline.vue';
-
-const { mapState, mapActions } = createNamespacedHelpers(`post`);
 
 export default {
   components: {
@@ -97,7 +95,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({
+    ...mapState(`post`, {
       posts: state => state.posts,
       currentPost: state => state.current,
     }),
@@ -106,7 +104,7 @@ export default {
     registerStoreModule({ module: post, moduleName: `post`, store: this.$store });
   },
   methods: {
-    ...mapActions({
+    ...mapActions(`post`, {
       fetchPost: FETCH_POST,
     }),
   },
