@@ -1,6 +1,6 @@
 #!/bin/bash
 
-browsers=( "ie10" "ie11" "edge" "safari" "firefox" "chrome" )
+browsers=( "ie11" "edge" "safari" "firefox" "chrome" )
 
 for i in "${browsers[@]}"
 do
