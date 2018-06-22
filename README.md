@@ -10,7 +10,7 @@ The combination of webpack and node-sass-magic-importer makes it possible to mod
 
 ## Getting started
 
-- `yarn init` Install dependencies and set up correct `.env` file.
+- `yarn run init` Install dependencies and set up correct `.env` file.
 - `yarn run dev` Serve with hot reload at localhost:3000.
 - `yarn run build` Build for production.
 - `yarn start` Launch server.
