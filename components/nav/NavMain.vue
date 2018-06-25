@@ -17,6 +17,14 @@
           About
         </router-link>
       </li>
+      <li :class="`${$options.name}__item`">
+        <router-link
+          :class="`${$options.name}__link`"
+          to="/settings"
+        >
+          Settings
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
@@ -66,12 +74,20 @@ export default {
       &:hover,
       &:focus {
         background-color: rgba(setting-color(a), 0.1);
+
+        .t-dark & {
+          background-color: rgba(#444, 0.1);
+        }
       }
     }
 
     &,
     &:visited {
       color: setting-color(a);
+
+      .t-dark & {
+        color: #444;
+      }
     }
   }
 }

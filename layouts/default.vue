@@ -1,5 +1,10 @@
 <template>
-  <div :class="$options.name">
+  <div
+    :class="{
+      [$options.name]: true,
+      [`t-${theme}`]: theme,
+    }"
+  >
     <div class="o-grid o-grid--collapsed">
       <div class="o-grid__item u-width-12/12 u-width-3/12@m">
         <nav-main :class="`${$options.name}__sidebar`"></nav-main>
@@ -12,12 +17,17 @@
 </template>
 
 <script>
+import { mapFields } from 'vuex-map-fields';
+
 import NavMain from '../components/nav/NavMain.vue';
 
 export default {
   name: `LayoutDefault`,
   components: {
     NavMain,
+  },
+  computed: {
+    ...mapFields([`theme`]),
   },
 };
 </script>
