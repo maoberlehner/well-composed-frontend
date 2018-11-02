@@ -44,7 +44,7 @@
     "@avalanche/utility-width": "^4.0.0-alpha.8",
     "@nuxtjs/dotenv": "^1.1.1",
     "@nuxtjs/pwa": "^2.0.8",
-    "apollo-server-express": "^2.0.0",
+    "apollo-server-express": "^2.0.4",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
