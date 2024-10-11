@@ -47,7 +47,7 @@
     "apollo-server-express": "^2.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "express": "^4.16.3",
+    "express": "^4.21.1",
     "graphql": "^0.13.2",
     "graphql-request": "^1.8.0",
     "graphql-tools": "^3.1.1",
